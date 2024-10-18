@@ -97,8 +97,8 @@ user_proj_example mprj (
 
     // Logic Analyzer
 
-    //.la_data_in(la_data_in[64:0]),
-    .la_data_out(la_data_out[63:0]),
+    .la_data_in(la_data_in[64:0]),
+    .la_data_out(la_data_out[110:0]),
 
 
     // IO Pads
