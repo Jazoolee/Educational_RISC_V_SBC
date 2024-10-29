@@ -1,10 +1,12 @@
 {
     "DESIGN_NAME": "user_project_wrapper",
+    "DESIGN_IS_CORE": 1,
     "VERILOG_FILES": [
         "dir::../../verilog/rtl/defines.v",
         "dir::../../verilog/rtl/user_project_wrapper.v"
     ],
     "ROUTING_CORES": 3,
+    "SYNTH_READ_BLACKBOX_LIB":1,
     "KLAYOUT_XOR_THREADS": 3,
     "CLOCK_PERIOD": 100,
     "CLOCK_PORT": "wb_clk_i",
@@ -36,7 +38,7 @@
     ],
     "BASE_SDC_FILE": "dir::base_user_project_wrapper.sdc",
     "IO_SYNC": 0,
-    "RUN_MAGIC_DRC":0,
+    "QUIT_ON_MAGIC_DRC": 0,
     "MAX_TRANSITION_CONSTRAINT": 1.5,
     "RUN_LINTER": 0,
     "QUIT_ON_SYNTH_CHECKS": 0,
