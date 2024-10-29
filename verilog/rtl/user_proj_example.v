@@ -168,8 +168,8 @@ module processor_only #(
       SRA    : aluOut = $signed(src1) >>> src2[4:0];
       OR     : aluOut = src1 | src2;
       AND    : aluOut = src1 & src2;
-      //MUL    : aluOut = src1 * src2;
-      //DIV    : aluOut = src1 / src2;
+      MUL    : aluOut = src1 * src2;
+      DIV    : aluOut = src1 / src2;
       PASS   : aluOut = src2;                                             
       default: aluOut = 0;
     endcase 

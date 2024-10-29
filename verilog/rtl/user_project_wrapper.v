@@ -78,11 +78,14 @@ module user_project_wrapper #(
     output [2:0] user_irq
 );
 
-/*--------------------------------------*/
-/* User project is instantiated  here   */
-/*--------------------------------------*/
-
-user_proj_example mprj (
+    
+    wire csb;
+    wire [3:0] wmask;    
+    wire [31:0] insMemDataM2P;
+    wire [8:0] insMemAddrP2M;
+        
+    
+SLRV mprj (
 `ifdef USE_POWER_PINS
 	.vccd1(vccd1),	// User area 1 1.8V power
 	.vssd1(vssd1),	// User area 1 digital ground
@@ -90,27 +93,37 @@ user_proj_example mprj (
 
     .wb_clk_i(wb_clk_i),
     .wb_rst_i(wb_rst_i),
+    .la_data_in(la_data_in[1:0]),
+    .insMemEn(la_data_in[2]),
+    .insMemDataIn(insMemDataM2P),
+    .insMemAddr(insMemAddrP2M),
+    .gp(la_data_out[40:9]),
+    .a7(la_data_out[72:41]),
+    .pc_led(io_out[10]),
+    .pc_led_oeb(io_oeb[10]),
+    .csb(csb),
+    .wmask(wmask)
 
-    // MGMT SoC Wishbone Slave
-
-
-
-    // Logic Analyzer
-
-    .la_data_in(la_data_in[64:0]),
-    .la_data_out(la_data_out[110:0]),
-
-
-    // IO Pads
-
-    //.io_in ({io_in[37:30],io_in[7:0]}),
-    //.io_out(io_out),
-    //.io_oeb({io_oeb[37:30],io_oeb[7:0]}),
-
-    // IRQ
-    //.irq(user_irq)
 );
 
-endmodule	// user_project_wrapper
+sky130_sram_2kbyte_1rw1r_32x512_8 imem (
+`ifdef USE_POWER_PINS
+	.vccd1(vccd1),	// User area 1 1.8V power
+	.vssd1(vssd1),	// User area 1 digital ground
+`endif
 
+    .clk0(wb_clk_i),
+    .csb0(csb),
+    .web0(la_data_in[2]),
+    .wmask0(wmask),
+    .addr0(la_data_in[11:3]),
+    .din0(la_data_in[43:12]),
+    
+    .clk1(wb_clk_i),
+    .csb1(csb),
+    .addr1(insMemAddrP2M),
+    .dout1(insMemDataM2P),
+);
+
+endmodule
 `default_nettype wire
