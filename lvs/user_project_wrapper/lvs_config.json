@@ -31,6 +31,7 @@
     ],
     "LVS_VERILOG_FILES": [
         "$UPRJ_ROOT/verilog/gl/SLRV.v",
+        "$UPRJ_ROOT/verilog/gl/scoreboard_top.v",
         "$UPRJ_ROOT/verilog/gl/$TOP_SOURCE.v"
     ],
     "LAYOUT_FILE": "$UPRJ_ROOT/gds/$TOP_LAYOUT.gds"

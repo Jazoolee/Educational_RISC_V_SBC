@@ -1309,9 +1309,10 @@ VIAS 3 ;
     - via5_6_1600_3100_2_1_1600_1600 + VIARULE M4M5_PR + CUTSIZE 800 800  + LAYERS met4 via4 met5  + CUTSPACING 800 800  + ENCLOSURE 400 350 310 350  + ROWCOL 2 1  ;
     - via5_6_1740_3100_2_1_1600_1600 + VIARULE M4M5_PR + CUTSIZE 800 800  + LAYERS met4 via4 met5  + CUTSPACING 800 800  + ENCLOSURE 470 350 310 350  + ROWCOL 2 1  ;
 END VIAS
-COMPONENTS 2 ;
+COMPONENTS 3 ;
     - SLRV_CORE SLRV + FIXED ( 400000 50000 ) N ;
     - SLRV_IMEM sky130_sram_2kbyte_1rw1r_32x512_8 + FIXED ( 1800000 50000 ) N ;
+    - scoreboard scoreboard_top + FIXED ( 50000 2500000 ) N ;
 END COMPONENTS
 PINS 645 ;
     - analog_io[0] + NET analog_io[0] + DIRECTION INOUT + USE SIGNAL
@@ -3528,7 +3529,8 @@ PINS 645 ;
         + LAYER met4 ( -693640 -3026315 ) ( -690540 84870 )
         + LAYER met4 ( -873640 -3026315 ) ( -870540 84870 )
         + LAYER met4 ( -1053640 -3511350 ) ( -1050540 84870 )
-        + LAYER met4 ( -1233640 -3511350 ) ( -1230540 84870 )
+        + LAYER met4 ( -1233640 -673820 ) ( -1230540 84870 )
+        + LAYER met4 ( -1233640 -3511350 ) ( -1230540 -973140 )
         + LAYER met4 ( -1413640 -3511350 ) ( -1410540 84870 )
         + LAYER met4 ( 1476340 -3487350 ) ( 1479440 60870 )
         + LAYER met5 ( -1479440 57770 ) ( 1479440 60870 )
@@ -3612,7 +3614,8 @@ PINS 645 ;
         + LAYER met4 ( -619240 -2920715 ) ( -616140 190470 )
         + LAYER met4 ( -799240 -2920715 ) ( -796140 190470 )
         + LAYER met4 ( -979240 -3405750 ) ( -976140 190470 )
-        + LAYER met4 ( -1159240 -3405750 ) ( -1156140 190470 )
+        + LAYER met4 ( -1159240 -568220 ) ( -1156140 190470 )
+        + LAYER met4 ( -1159240 -3405750 ) ( -1156140 -867540 )
         + LAYER met4 ( -1339240 -3405750 ) ( -1336140 190470 )
         + LAYER met4 ( 1495540 -3400950 ) ( 1498640 185670 )
         + LAYER met5 ( -1498640 182570 ) ( 1498640 185670 )
@@ -4234,6 +4237,12 @@ SPECIALNETS 8 ;
       NEW met4 0 + SHAPE STRIPE ( 2477470 195880 ) via5_6_1740_3100_2_1_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 1805630 375880 ) via5_6_1740_3100_2_1_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 1805630 195880 ) via5_6_1740_3100_2_1_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 225440 2715880 ) via5_6_1600_3100_2_1_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 225440 2535880 ) via5_6_1600_3100_2_1_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 190520 2715880 ) via5_6_3100_3100_2_2_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 190520 2535880 ) via5_6_3100_3100_2_2_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 71840 2715880 ) via5_6_1600_3100_2_1_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 71840 2535880 ) via5_6_1600_3100_2_1_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 1650640 375880 ) via5_6_1600_3100_2_1_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 1650640 195880 ) via5_6_1600_3100_2_1_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 1497040 375880 ) via5_6_1600_3100_2_1_1600_1600
@@ -4741,7 +4750,8 @@ SPECIALNETS 8 ;
       NEW met4 3100 + SHAPE STRIPE ( 767720 446765 ) ( 767720 3557950 )
       NEW met4 3100 + SHAPE STRIPE ( 587720 446765 ) ( 587720 3557950 )
       NEW met4 3100 + SHAPE STRIPE ( 407720 -38270 ) ( 407720 3557950 )
-      NEW met4 3100 + SHAPE STRIPE ( 227720 -38270 ) ( 227720 3557950 )
+      NEW met4 3100 + SHAPE STRIPE ( 227720 2799260 ) ( 227720 3557950 )
+      NEW met4 3100 + SHAPE STRIPE ( 227720 -38270 ) ( 227720 2499940 )
       NEW met4 3100 + SHAPE STRIPE ( 47720 -38270 ) ( 47720 3557950 )
       NEW met4 3100 + SHAPE RING ( 2937700 -14270 ) ( 2937700 3533950 )
       NEW met5 3100 + SHAPE RING ( -19630 3532400 ) ( 2939250 3532400 )
@@ -5038,8 +5048,6 @@ SPECIALNETS 8 ;
       NEW met4 0 + SHAPE STRIPE ( 227720 3293080 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 227720 3113080 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 227720 2933080 ) via5_6_3100_3100_2_2_1600_1600
-      NEW met4 0 + SHAPE STRIPE ( 227720 2753080 ) via5_6_3100_3100_2_2_1600_1600
-      NEW met4 0 + SHAPE STRIPE ( 227720 2573080 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 227720 2393080 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 227720 2213080 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 227720 2033080 ) via5_6_3100_3100_2_2_1600_1600
@@ -5100,7 +5108,11 @@ SPECIALNETS 8 ;
       NEW met4 0 + SHAPE STRIPE ( -18080 53080 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE RING ( -18080 -12720 ) via5_6_3100_3100_2_2_1600_1600 ;
     - vdda1 ( PIN vdda1 ) + USE POWER
-      + ROUTED met4 0 + SHAPE STRIPE ( 1524920 450280 ) via5_6_3100_3100_2_2_1600_1600
+      + ROUTED met4 0 + SHAPE STRIPE ( 264920 2790280 ) via5_6_3100_3100_2_2_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 264920 2610280 ) via5_6_3100_3100_2_2_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 84920 2790280 ) via5_6_3100_3100_2_2_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 84920 2610280 ) via5_6_3100_3100_2_2_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 1524920 450280 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 1164920 450280 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 984920 450280 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 624920 450280 ) via5_6_3100_3100_2_2_1600_1600
@@ -5489,7 +5501,8 @@ SPECIALNETS 8 ;
       NEW met4 0 + SHAPE STRIPE ( -27680 90280 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE RING ( -27680 -22320 ) via5_6_3100_3100_2_2_1600_1600 ;
     - vdda2 ( PIN vdda2 ) + USE POWER
-      + ROUTED met4 0 + SHAPE STRIPE ( 482120 307480 ) via5_6_3100_3100_2_2_1600_1600
+      + ROUTED met4 0 + SHAPE STRIPE ( 122120 2647480 ) via5_6_3100_3100_2_2_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 482120 307480 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 482120 127480 ) via5_6_3100_3100_2_2_1600_1600
       NEW met5 3100 + SHAPE STRIPE ( -43630 3367480 ) ( 2963250 3367480 )
       NEW met5 3100 + SHAPE STRIPE ( -43630 3187480 ) ( 2963250 3187480 )
@@ -5524,7 +5537,8 @@ SPECIALNETS 8 ;
       NEW met4 3100 + SHAPE STRIPE ( 842120 446765 ) ( 842120 3557950 )
       NEW met4 3100 + SHAPE STRIPE ( 662120 446765 ) ( 662120 3557950 )
       NEW met4 3100 + SHAPE STRIPE ( 482120 -38270 ) ( 482120 3557950 )
-      NEW met4 3100 + SHAPE STRIPE ( 302120 -38270 ) ( 302120 3557950 )
+      NEW met4 3100 + SHAPE STRIPE ( 302120 2799260 ) ( 302120 3557950 )
+      NEW met4 3100 + SHAPE STRIPE ( 302120 -38270 ) ( 302120 2499940 )
       NEW met4 3100 + SHAPE STRIPE ( 122120 -38270 ) ( 122120 3557950 )
       NEW met4 3100 + SHAPE RING ( 2956900 -33470 ) ( 2956900 3553150 )
       NEW met5 3100 + SHAPE RING ( -38830 3551600 ) ( 2958450 3551600 )
@@ -5820,7 +5834,6 @@ SPECIALNETS 8 ;
       NEW met4 0 + SHAPE STRIPE ( 302120 3187480 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 302120 3007480 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 302120 2827480 ) via5_6_3100_3100_2_2_1600_1600
-      NEW met4 0 + SHAPE STRIPE ( 302120 2647480 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 302120 2467480 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 302120 2287480 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 302120 2107480 ) via5_6_3100_3100_2_2_1600_1600
@@ -5879,7 +5892,9 @@ SPECIALNETS 8 ;
       NEW met4 0 + SHAPE STRIPE ( -37280 127480 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE RING ( -37280 -31920 ) via5_6_3100_3100_2_2_1600_1600 ;
     - vssa1 ( PIN vssa1 ) + USE GROUND
-      + ROUTED met4 0 + SHAPE STRIPE ( 1543520 468880 ) via5_6_3100_3100_2_2_1600_1600
+      + ROUTED met4 0 + SHAPE STRIPE ( 283520 2628880 ) via5_6_3100_3100_2_2_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 103520 2628880 ) via5_6_3100_3100_2_2_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 1543520 468880 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 1363520 468880 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 1183520 468880 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 1003520 468880 ) via5_6_3100_3100_2_2_1600_1600
@@ -6272,7 +6287,9 @@ SPECIALNETS 8 ;
       NEW met4 0 + SHAPE STRIPE ( -32480 108880 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE RING ( -32480 -27120 ) via5_6_3100_3100_2_2_1600_1600 ;
     - vssa2 ( PIN vssa2 ) + USE GROUND
-      + ROUTED met5 3100 + SHAPE STRIPE ( -43630 3386080 ) ( 2963250 3386080 )
+      + ROUTED met4 0 + SHAPE STRIPE ( 320720 2666080 ) via5_6_3100_3100_2_2_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 140720 2666080 ) via5_6_3100_3100_2_2_1600_1600
+      NEW met5 3100 + SHAPE STRIPE ( -43630 3386080 ) ( 2963250 3386080 )
       NEW met5 3100 + SHAPE STRIPE ( -43630 3206080 ) ( 2963250 3206080 )
       NEW met5 3100 + SHAPE STRIPE ( -43630 3026080 ) ( 2963250 3026080 )
       NEW met5 3100 + SHAPE STRIPE ( -43630 2846080 ) ( 2963250 2846080 )
@@ -6661,6 +6678,12 @@ SPECIALNETS 8 ;
       NEW met4 0 + SHAPE STRIPE ( 2480870 214480 ) via5_6_1740_3100_2_1_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 1802230 394480 ) via5_6_1740_3100_2_1_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 1802230 214480 ) via5_6_1740_3100_2_1_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 302240 2734480 ) via5_6_1600_3100_2_1_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 302240 2554480 ) via5_6_1600_3100_2_1_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 209120 2734480 ) via5_6_3100_3100_2_2_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 209120 2554480 ) via5_6_3100_3100_2_2_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 148640 2734480 ) via5_6_1600_3100_2_1_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 148640 2554480 ) via5_6_1600_3100_2_1_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 1573840 394480 ) via5_6_1600_3100_2_1_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 1573840 214480 ) via5_6_1600_3100_2_1_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 1420240 394480 ) via5_6_1600_3100_2_1_1600_1600
@@ -7129,7 +7152,11 @@ SPECIALNETS 8 ;
       NEW met4 0 + SHAPE STRIPE ( -13280 34480 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE RING ( -13280 -7920 ) via5_6_3100_3100_2_2_1600_1600 ;
     - vssd2 ( PIN vssd2 ) + USE GROUND
-      + ROUTED met4 0 + SHAPE STRIPE ( 426320 431680 ) via5_6_3100_3100_2_2_1600_1600
+      + ROUTED met4 0 + SHAPE STRIPE ( 246320 2771680 ) via5_6_3100_3100_2_2_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 246320 2591680 ) via5_6_3100_3100_2_2_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 66320 2771680 ) via5_6_3100_3100_2_2_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 66320 2591680 ) via5_6_3100_3100_2_2_1600_1600
+      NEW met4 0 + SHAPE STRIPE ( 426320 431680 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 426320 251680 ) via5_6_3100_3100_2_2_1600_1600
       NEW met4 0 + SHAPE STRIPE ( 426320 71680 ) via5_6_3100_3100_2_2_1600_1600
       NEW met5 3100 + SHAPE STRIPE ( -43630 3491680 ) ( 2963250 3491680 )
@@ -8174,14 +8201,14 @@ NETS 683 ;
     - insMemDataM2P\[8\] ( SLRV_IMEM dout1[8] ) ( SLRV_CORE insMemDataIn[8] ) + USE SIGNAL
       + ROUTED met4 ( 2042950 466010 0 ) ( * 467500 )
       NEW met4 ( 2042860 467500 ) ( 2042950 * )
-      NEW met4 ( 2042860 467500 ) ( * 482460 )
+      NEW met4 ( 2042860 467500 ) ( * 481780 )
       NEW met3 ( 1689580 182240 0 ) ( * 185980 )
       NEW met3 ( 1689580 185980 ) ( 1714420 * )
-      NEW met3 ( 1714420 482460 ) ( 2042860 * )
-      NEW met4 ( 1714420 185980 ) ( * 482460 )
-      NEW met3 ( 2042860 482460 ) M3M4_PR
+      NEW met3 ( 1714420 481780 ) ( 2042860 * )
+      NEW met4 ( 1714420 185980 ) ( * 481780 )
+      NEW met3 ( 2042860 481780 ) M3M4_PR
       NEW met3 ( 1714420 185980 ) M3M4_PR
-      NEW met3 ( 1714420 482460 ) M3M4_PR ;
+      NEW met3 ( 1714420 481780 ) M3M4_PR ;
     - insMemDataM2P\[9\] ( SLRV_IMEM dout1[9] ) ( SLRV_CORE insMemDataIn[9] ) + USE SIGNAL
       + ROUTED met4 ( 2054820 469200 ) ( * 470220 )
       NEW met4 ( 2055870 466010 0 ) ( * 467500 )
@@ -8208,8 +8235,24 @@ NETS 683 ;
     - io_in[19] ( PIN io_in[19] ) + USE SIGNAL ;
     - io_in[1] ( PIN io_in[1] ) + USE SIGNAL ;
     - io_in[20] ( PIN io_in[20] ) + USE SIGNAL ;
-    - io_in[21] ( PIN io_in[21] ) + USE SIGNAL ;
-    - io_in[22] ( PIN io_in[22] ) + USE SIGNAL ;
+    - io_in[21] ( PIN io_in[21] ) ( scoreboard io_in[0] ) + USE SIGNAL
+      + ROUTED met3 ( 40710 2725100 ) ( 51060 * )
+      NEW met3 ( 51060 2724760 0 ) ( * 2725100 )
+      NEW met3 ( 40710 3501660 ) ( 851690 * )
+      NEW met2 ( 40710 2725100 ) ( * 3501660 )
+      NEW met2 ( 851690 3501660 ) ( * 3517980 0 )
+      NEW met2 ( 40710 2725100 ) M2M3_PR
+      NEW met2 ( 40710 3501660 ) M2M3_PR
+      NEW met2 ( 851690 3501660 ) M2M3_PR ;
+    - io_in[22] ( PIN io_in[22] ) ( scoreboard io_in[1] ) + USE SIGNAL
+      + ROUTED met3 ( 41170 3502340 ) ( 527390 * )
+      NEW met3 ( 41170 2578220 ) ( 51060 * )
+      NEW met3 ( 51060 2575160 0 ) ( * 2578220 )
+      NEW met2 ( 41170 2578220 ) ( * 3502340 )
+      NEW met2 ( 527390 3502340 ) ( * 3517980 0 )
+      NEW met2 ( 41170 3502340 ) M2M3_PR
+      NEW met2 ( 527390 3502340 ) M2M3_PR
+      NEW met2 ( 41170 2578220 ) M2M3_PR ;
     - io_in[23] ( PIN io_in[23] ) + USE SIGNAL ;
     - io_in[24] ( PIN io_in[24] ) + USE SIGNAL ;
     - io_in[25] ( PIN io_in[25] ) + USE SIGNAL ;
@@ -8260,18 +8303,116 @@ NETS 683 ;
     - io_oeb[20] ( PIN io_oeb[20] ) + USE SIGNAL ;
     - io_oeb[21] ( PIN io_oeb[21] ) + USE SIGNAL ;
     - io_oeb[22] ( PIN io_oeb[22] ) + USE SIGNAL ;
-    - io_oeb[23] ( PIN io_oeb[23] ) + USE SIGNAL ;
-    - io_oeb[24] ( PIN io_oeb[24] ) + USE SIGNAL ;
-    - io_oeb[25] ( PIN io_oeb[25] ) + USE SIGNAL ;
-    - io_oeb[26] ( PIN io_oeb[26] ) + USE SIGNAL ;
-    - io_oeb[27] ( PIN io_oeb[27] ) + USE SIGNAL ;
-    - io_oeb[28] ( PIN io_oeb[28] ) + USE SIGNAL ;
-    - io_oeb[29] ( PIN io_oeb[29] ) + USE SIGNAL ;
+    - io_oeb[23] ( PIN io_oeb[23] ) ( scoreboard io_oeb[0] ) + USE SIGNAL
+      + ROUTED met3 ( 40710 3503020 ) ( 346610 * )
+      NEW met2 ( 40710 3503020 ) ( * 3517980 0 )
+      NEW met3 ( 346610 2780180 ) ( 347300 * )
+      NEW met3 ( 347300 2779160 0 ) ( * 2780180 )
+      NEW met2 ( 346610 2780180 ) ( * 3503020 )
+      NEW met2 ( 40710 3503020 ) M2M3_PR
+      NEW met2 ( 346610 3503020 ) M2M3_PR
+      NEW met2 ( 346610 2780180 ) M2M3_PR ;
+    - io_oeb[24] ( PIN io_oeb[24] ) ( scoreboard io_oeb[1] ) + USE SIGNAL
+      + ROUTED met3 ( 1380 3290860 0 ) ( 349140 * )
+      NEW met4 ( 349140 2751960 ) ( * 3290860 )
+      NEW met3 ( 349140 3290860 ) M3M4_PR
+      NEW met3 ( 349140 2751960 ) M3M4_PR_M ;
+    - io_oeb[25] ( PIN io_oeb[25] ) ( scoreboard io_oeb[2] ) + USE SIGNAL
+      + ROUTED met3 ( 1380 3030420 0 ) ( 347300 * )
+      NEW met4 ( 347300 2724760 ) ( * 3030420 )
+      NEW met3 ( 347300 2724760 ) M3M4_PR_M
+      NEW met3 ( 347300 3030420 ) M3M4_PR ;
+    - io_oeb[26] ( PIN io_oeb[26] ) ( scoreboard io_oeb[3] ) + USE SIGNAL
+      + ROUTED met3 ( 1380 2769300 0 ) ( 20700 * )
+      NEW met4 ( 20700 2769300 ) ( * 2795140 )
+      NEW met3 ( 349140 2697560 0 ) ( * 2697900 )
+      NEW met3 ( 349140 2697900 ) ( 359260 * )
+      NEW met3 ( 20700 2795140 ) ( 359260 * )
+      NEW met4 ( 359260 2697900 ) ( * 2795140 )
+      NEW met3 ( 20700 2795140 ) M3M4_PR
+      NEW met3 ( 20700 2769300 ) M3M4_PR
+      NEW met3 ( 359260 2697900 ) M3M4_PR
+      NEW met3 ( 359260 2795140 ) M3M4_PR ;
+    - io_oeb[27] ( PIN io_oeb[27] ) ( scoreboard io_oeb[4] ) + USE SIGNAL
+      + ROUTED met3 ( 1380 2508860 0 ) ( 3220 * )
+      NEW met3 ( 3220 2508180 ) ( * 2508860 )
+      NEW met3 ( 1380 2508180 ) ( 3220 * )
+      NEW met3 ( 1380 2505460 ) ( * 2508180 )
+      NEW met3 ( 1380 2505460 ) ( 14260 * )
+      NEW met3 ( 14260 2504100 ) ( * 2505460 )
+      NEW met3 ( 14260 2504100 ) ( 34500 * )
+      NEW met3 ( 34500 2503420 ) ( * 2504100 )
+      NEW met3 ( 342700 2502740 ) ( * 2503420 )
+      NEW met3 ( 342700 2502740 ) ( 362940 * )
+      NEW met3 ( 362940 2502740 ) ( * 2503420 )
+      NEW met3 ( 34500 2503420 ) ( 342700 * )
+      NEW met4 ( 362020 2594400 ) ( 362940 * )
+      NEW met4 ( 362940 2503420 ) ( * 2594400 )
+      NEW met3 ( 349140 2670360 0 ) ( * 2670700 )
+      NEW met3 ( 349140 2670700 ) ( 362020 * )
+      NEW met4 ( 362020 2594400 ) ( * 2670700 )
+      NEW met3 ( 362940 2503420 ) M3M4_PR
+      NEW met3 ( 362020 2670700 ) M3M4_PR ;
+    - io_oeb[28] ( PIN io_oeb[28] ) ( scoreboard io_oeb[5] ) + USE SIGNAL
+      + ROUTED met3 ( 1380 2247740 0 ) ( 361100 * )
+      NEW met3 ( 349140 2642820 ) ( * 2643160 0 )
+      NEW met3 ( 349140 2642820 ) ( 361100 * )
+      NEW met4 ( 361100 2247740 ) ( * 2642820 )
+      NEW met3 ( 361100 2247740 ) M3M4_PR
+      NEW met3 ( 361100 2642820 ) M3M4_PR ;
+    - io_oeb[29] ( PIN io_oeb[29] ) ( scoreboard io_oeb[6] ) + USE SIGNAL
+      + ROUTED met3 ( 349140 2615620 ) ( * 2615960 0 )
+      NEW met3 ( 349140 2615620 ) ( 360180 * )
+      NEW met3 ( 1380 1987300 0 ) ( 360180 * )
+      NEW met4 ( 360180 1987300 ) ( * 2615620 )
+      NEW met3 ( 360180 2615620 ) M3M4_PR
+      NEW met3 ( 360180 1987300 ) M3M4_PR ;
     - io_oeb[2] ( PIN io_oeb[2] ) + USE SIGNAL ;
-    - io_oeb[30] ( PIN io_oeb[30] ) + USE SIGNAL ;
-    - io_oeb[31] ( PIN io_oeb[31] ) + USE SIGNAL ;
-    - io_oeb[32] ( PIN io_oeb[32] ) + USE SIGNAL ;
-    - io_oeb[33] ( PIN io_oeb[33] ) + USE SIGNAL ;
+    - io_oeb[30] ( PIN io_oeb[30] ) ( scoreboard io_oeb[7] ) + USE SIGNAL
+      + ROUTED met3 ( 1380 1726860 0 ) ( 362020 * )
+      NEW met3 ( 361330 2504100 ) ( 362020 * )
+      NEW met4 ( 362020 1726860 ) ( * 2504100 )
+      NEW met3 ( 349140 2587740 ) ( * 2588760 0 )
+      NEW met3 ( 349140 2587740 ) ( 361330 * )
+      NEW met2 ( 361330 2504100 ) ( * 2587740 )
+      NEW met3 ( 362020 1726860 ) M3M4_PR
+      NEW met2 ( 361330 2504100 ) M2M3_PR
+      NEW met3 ( 362020 2504100 ) M3M4_PR
+      NEW met2 ( 361330 2587740 ) M2M3_PR ;
+    - io_oeb[31] ( PIN io_oeb[31] ) ( scoreboard io_oeb[8] ) + USE SIGNAL
+      + ROUTED met3 ( 1380 1465740 0 ) ( 361100 * )
+      NEW met3 ( 360410 2242980 ) ( 361100 * )
+      NEW met4 ( 361100 1465740 ) ( * 2242980 )
+      NEW met3 ( 349140 2560540 ) ( * 2561560 0 )
+      NEW met3 ( 349140 2560540 ) ( 360410 * )
+      NEW met2 ( 360410 2242980 ) ( * 2560540 )
+      NEW met3 ( 361100 1465740 ) M3M4_PR
+      NEW met2 ( 360410 2242980 ) M2M3_PR
+      NEW met3 ( 361100 2242980 ) M3M4_PR
+      NEW met2 ( 360410 2560540 ) M2M3_PR ;
+    - io_oeb[32] ( PIN io_oeb[32] ) ( scoreboard io_oeb[9] ) + USE SIGNAL
+      + ROUTED met3 ( 349140 2532660 ) ( * 2534360 0 )
+      NEW met3 ( 349140 2532660 ) ( 359950 * )
+      NEW met3 ( 1380 1205300 0 ) ( 362940 * )
+      NEW met3 ( 359950 1990700 ) ( 362940 * )
+      NEW met4 ( 362940 1205300 ) ( * 1990700 )
+      NEW met2 ( 359950 1990700 ) ( * 2532660 )
+      NEW met2 ( 359950 2532660 ) M2M3_PR
+      NEW met3 ( 362940 1205300 ) M3M4_PR
+      NEW met2 ( 359950 1990700 ) M2M3_PR
+      NEW met3 ( 362940 1990700 ) M3M4_PR ;
+    - io_oeb[33] ( PIN io_oeb[33] ) ( scoreboard io_oeb[10] ) + USE SIGNAL
+      + ROUTED met3 ( 349140 2504780 ) ( * 2507160 0 )
+      NEW met3 ( 349140 2504780 ) ( 359030 * )
+      NEW met3 ( 1380 944180 0 ) ( 359260 * )
+      NEW met3 ( 359030 1524900 ) ( 359260 * )
+      NEW met4 ( 359260 944180 ) ( * 1524900 )
+      NEW met2 ( 359030 1524900 ) ( * 2504780 )
+      NEW met2 ( 359030 2504780 ) M2M3_PR
+      NEW met3 ( 359260 944180 ) M3M4_PR
+      NEW met2 ( 359030 1524900 ) M2M3_PR
+      NEW met3 ( 359260 1524900 ) M3M4_PR
+      NEW met3 ( 359030 1524900 ) RECT ( -390 -150 0 150 )  ;
     - io_oeb[34] ( PIN io_oeb[34] ) + USE SIGNAL ;
     - io_oeb[35] ( PIN io_oeb[35] ) + USE SIGNAL ;
     - io_oeb[36] ( PIN io_oeb[36] ) + USE SIGNAL ;
@@ -8306,18 +8447,93 @@ NETS 683 ;
     - io_out[20] ( PIN io_out[20] ) + USE SIGNAL ;
     - io_out[21] ( PIN io_out[21] ) + USE SIGNAL ;
     - io_out[22] ( PIN io_out[22] ) + USE SIGNAL ;
-    - io_out[23] ( PIN io_out[23] ) + USE SIGNAL ;
-    - io_out[24] ( PIN io_out[24] ) + USE SIGNAL ;
-    - io_out[25] ( PIN io_out[25] ) + USE SIGNAL ;
-    - io_out[26] ( PIN io_out[26] ) + USE SIGNAL ;
-    - io_out[27] ( PIN io_out[27] ) + USE SIGNAL ;
-    - io_out[28] ( PIN io_out[28] ) + USE SIGNAL ;
-    - io_out[29] ( PIN io_out[29] ) + USE SIGNAL ;
+    - io_out[23] ( PIN io_out[23] ) ( scoreboard io_out[0] ) + USE SIGNAL
+      + ROUTED met2 ( 121670 3503700 ) ( * 3517980 0 )
+      NEW met3 ( 349140 2792760 0 ) ( * 2794460 )
+      NEW met3 ( 349140 2794460 ) ( 352130 * )
+      NEW met3 ( 121670 3503700 ) ( 352130 * )
+      NEW met2 ( 352130 2794460 ) ( * 3503700 )
+      NEW met2 ( 121670 3503700 ) M2M3_PR
+      NEW met2 ( 352130 2794460 ) M2M3_PR
+      NEW met2 ( 352130 3503700 ) M2M3_PR ;
+    - io_out[24] ( PIN io_out[24] ) ( scoreboard io_out[1] ) + USE SIGNAL
+      + ROUTED met3 ( 349140 2765560 0 ) ( 351900 * )
+      NEW met3 ( 1380 3356140 0 ) ( 351900 * )
+      NEW met4 ( 351900 2765560 ) ( * 3356140 )
+      NEW met3 ( 351900 2765560 ) M3M4_PR
+      NEW met3 ( 351900 3356140 ) M3M4_PR ;
+    - io_out[25] ( PIN io_out[25] ) ( scoreboard io_out[2] ) + USE SIGNAL
+      + ROUTED met3 ( 1380 3095700 0 ) ( 350060 * )
+      NEW met4 ( 349140 2738360 ) ( * 2739300 )
+      NEW met4 ( 349140 2739300 ) ( 350060 * )
+      NEW met4 ( 350060 2739300 ) ( * 3095700 )
+      NEW met3 ( 349140 2738360 ) M3M4_PR_M
+      NEW met3 ( 350060 3095700 ) M3M4_PR ;
+    - io_out[26] ( PIN io_out[26] ) ( scoreboard io_out[3] ) + USE SIGNAL
+      + ROUTED met3 ( 1380 2834580 0 ) ( 348220 * )
+      NEW met4 ( 348220 2711160 ) ( * 2834580 )
+      NEW met3 ( 348220 2711160 ) M3M4_PR_M
+      NEW met3 ( 348220 2834580 ) M3M4_PR ;
+    - io_out[27] ( PIN io_out[27] ) ( scoreboard io_out[4] ) + USE SIGNAL
+      + ROUTED met3 ( 1380 2574140 0 ) ( 17020 * )
+      NEW met4 ( 17020 2502740 ) ( * 2574140 )
+      NEW met3 ( 17020 2502740 ) ( 324300 * )
+      NEW met3 ( 324300 2502060 ) ( * 2502740 )
+      NEW met3 ( 324300 2502060 ) ( 358340 * )
+      NEW met4 ( 358340 2502060 ) ( * 2504100 )
+      NEW met4 ( 358340 2504100 ) ( 359260 * )
+      NEW met3 ( 349140 2680220 ) ( * 2683960 0 )
+      NEW met3 ( 349140 2680220 ) ( 359260 * )
+      NEW met3 ( 359260 2679540 ) ( * 2680220 )
+      NEW met4 ( 359260 2504100 ) ( * 2679540 )
+      NEW met3 ( 17020 2502740 ) M3M4_PR
+      NEW met3 ( 17020 2574140 ) M3M4_PR
+      NEW met3 ( 358340 2502060 ) M3M4_PR
+      NEW met3 ( 359260 2679540 ) M3M4_PR ;
+    - io_out[28] ( PIN io_out[28] ) ( scoreboard io_out[5] ) + USE SIGNAL
+      + ROUTED met3 ( 1380 2313020 0 ) ( 348220 * )
+      NEW met4 ( 348220 2313020 ) ( * 2656760 )
+      NEW met3 ( 348220 2313020 ) M3M4_PR
+      NEW met3 ( 348220 2656760 ) M3M4_PR_M ;
+    - io_out[29] ( PIN io_out[29] ) ( scoreboard io_out[6] ) + USE SIGNAL
+      + ROUTED met3 ( 1380 2052580 0 ) ( 347300 * )
+      NEW met4 ( 347300 2052580 ) ( * 2629560 )
+      NEW met3 ( 347300 2052580 ) M3M4_PR
+      NEW met3 ( 347300 2629560 ) M3M4_PR_M ;
     - io_out[2] ( PIN io_out[2] ) + USE SIGNAL ;
-    - io_out[30] ( PIN io_out[30] ) + USE SIGNAL ;
-    - io_out[31] ( PIN io_out[31] ) + USE SIGNAL ;
-    - io_out[32] ( PIN io_out[32] ) + USE SIGNAL ;
-    - io_out[33] ( PIN io_out[33] ) + USE SIGNAL ;
+    - io_out[30] ( PIN io_out[30] ) ( scoreboard io_out[7] ) + USE SIGNAL
+      + ROUTED met3 ( 1380 1792140 0 ) ( 349140 * )
+      NEW met4 ( 349140 1792140 ) ( * 2602360 )
+      NEW met3 ( 349140 2602360 ) M3M4_PR_M
+      NEW met3 ( 349140 1792140 ) M3M4_PR ;
+    - io_out[31] ( PIN io_out[31] ) ( scoreboard io_out[8] ) + USE SIGNAL
+      + ROUTED met3 ( 359260 2503420 ) ( 360870 * )
+      NEW met3 ( 1380 1531020 0 ) ( 359260 * )
+      NEW met4 ( 359260 1531020 ) ( * 2503420 )
+      NEW met3 ( 349140 2574140 ) ( * 2575160 0 )
+      NEW met3 ( 349140 2574140 ) ( 360870 * )
+      NEW met2 ( 360870 2503420 ) ( * 2574140 )
+      NEW met3 ( 359260 2503420 ) M3M4_PR
+      NEW met2 ( 360870 2503420 ) M2M3_PR
+      NEW met3 ( 359260 1531020 ) M3M4_PR
+      NEW met2 ( 360870 2574140 ) M2M3_PR ;
+    - io_out[32] ( PIN io_out[32] ) ( scoreboard io_out[9] ) + USE SIGNAL
+      + ROUTED met3 ( 1380 1270580 0 ) ( 351900 * )
+      NEW met3 ( 349140 2547960 0 ) ( 351900 * )
+      NEW met4 ( 351900 1270580 ) ( * 2547960 )
+      NEW met3 ( 351900 1270580 ) M3M4_PR
+      NEW met3 ( 351900 2547960 ) M3M4_PR ;
+    - io_out[33] ( PIN io_out[33] ) ( scoreboard io_out[10] ) + USE SIGNAL
+      + ROUTED met3 ( 359490 1731620 ) ( 360180 * )
+      NEW met3 ( 349140 2519060 ) ( * 2520760 0 )
+      NEW met3 ( 349140 2519060 ) ( 359490 * )
+      NEW met3 ( 1380 1009460 0 ) ( 360180 * )
+      NEW met4 ( 360180 1009460 ) ( * 1731620 )
+      NEW met2 ( 359490 1731620 ) ( * 2519060 )
+      NEW met2 ( 359490 1731620 ) M2M3_PR
+      NEW met3 ( 360180 1731620 ) M3M4_PR
+      NEW met2 ( 359490 2519060 ) M2M3_PR
+      NEW met3 ( 360180 1009460 ) M3M4_PR ;
     - io_out[34] ( PIN io_out[34] ) + USE SIGNAL ;
     - io_out[35] ( PIN io_out[35] ) + USE SIGNAL ;
     - io_out[36] ( PIN io_out[36] ) + USE SIGNAL ;
@@ -8609,8 +8825,8 @@ NETS 683 ;
       + ROUTED met2 ( 1125850 1700 0 ) ( * 34340 )
       NEW met3 ( 1980300 34340 ) ( 2003300 * )
       NEW met3 ( 1125850 34340 ) ( 1978460 * )
-      NEW met3 ( 1980300 34340 ) ( * 34500 )
       NEW met3 ( 1978460 34340 ) ( * 34500 )
+      NEW met3 ( 1980300 34340 ) ( * 34500 )
       NEW met3 ( 1978460 34500 ) ( 1980300 * )
       NEW met4 ( 2003510 49300 ) ( * 50530 0 )
       NEW met4 ( 2003300 49300 ) ( 2003510 * )
@@ -8631,15 +8847,15 @@ NETS 683 ;
       NEW met3 ( 2008820 41140 ) M3M4_PR
       NEW met2 ( 2008130 41140 ) M2M3_PR ;
     - la_data_in[2] ( PIN la_data_in[2] ) ( SLRV_CORE la_data_in[1] ) + USE SIGNAL
-      + ROUTED met2 ( 579370 14110 ) ( * 15980 )
+      + ROUTED met2 ( 577530 14110 ) ( * 18700 )
       NEW met2 ( 664930 1700 0 ) ( * 14110 )
       NEW met2 ( 470580 50660 0 ) ( 470810 * )
-      NEW met2 ( 470810 15980 ) ( * 50660 )
-      NEW met3 ( 470810 15980 ) ( 579370 * )
-      NEW met1 ( 579370 14110 ) ( 664930 * )
-      NEW met2 ( 470810 15980 ) M2M3_PR
-      NEW met2 ( 579370 15980 ) M2M3_PR
-      NEW met1 ( 579370 14110 ) M1M2_PR
+      NEW met2 ( 470810 18700 ) ( * 50660 )
+      NEW met3 ( 470810 18700 ) ( 577530 * )
+      NEW met1 ( 577530 14110 ) ( 664930 * )
+      NEW met2 ( 470810 18700 ) M2M3_PR
+      NEW met2 ( 577530 18700 ) M2M3_PR
+      NEW met1 ( 577530 14110 ) M1M2_PR
       NEW met1 ( 664930 14110 ) M1M2_PR ;
     - la_data_in[30] ( PIN la_data_in[30] ) ( SLRV_IMEM din0[17] ) + USE SIGNAL
       + ROUTED met2 ( 1161270 1700 0 ) ( * 30260 )
@@ -8972,11 +9188,11 @@ NETS 683 ;
       NEW met2 ( 1693950 47260 ) M2M3_PR ;
     - la_data_out[0] ( PIN la_data_out[0] ) ( SLRV_CORE gp[0] ) + USE SIGNAL
       + ROUTED met2 ( 506460 50660 0 ) ( 506690 * )
-      NEW met2 ( 506690 18020 ) ( * 50660 )
-      NEW met2 ( 635030 1700 0 ) ( * 18020 )
-      NEW met3 ( 506690 18020 ) ( 635030 * )
-      NEW met2 ( 506690 18020 ) M2M3_PR
-      NEW met2 ( 635030 18020 ) M2M3_PR ;
+      NEW met2 ( 506690 16660 ) ( * 50660 )
+      NEW met2 ( 635030 1700 0 ) ( * 16660 )
+      NEW met3 ( 506690 16660 ) ( 635030 * )
+      NEW met2 ( 506690 16660 ) M2M3_PR
+      NEW met2 ( 635030 16660 ) M2M3_PR ;
     - la_data_out[100] ( PIN la_data_out[100] ) + USE SIGNAL ;
     - la_data_out[101] ( PIN la_data_out[101] ) + USE SIGNAL ;
     - la_data_out[102] ( PIN la_data_out[102] ) + USE SIGNAL ;
@@ -8989,11 +9205,11 @@ NETS 683 ;
     - la_data_out[109] ( PIN la_data_out[109] ) + USE SIGNAL ;
     - la_data_out[10] ( PIN la_data_out[10] ) ( SLRV_CORE gp[10] ) + USE SIGNAL
       + ROUTED met2 ( 685860 50660 0 ) ( 686090 * )
-      NEW met2 ( 686090 16660 ) ( * 50660 )
-      NEW met2 ( 812590 1700 0 ) ( * 16660 )
-      NEW met3 ( 686090 16660 ) ( 812590 * )
-      NEW met2 ( 686090 16660 ) M2M3_PR
-      NEW met2 ( 812590 16660 ) M2M3_PR ;
+      NEW met2 ( 686090 20060 ) ( * 50660 )
+      NEW met2 ( 812590 1700 0 ) ( * 20060 )
+      NEW met3 ( 686090 20060 ) ( 812590 * )
+      NEW met2 ( 686090 20060 ) M2M3_PR
+      NEW met2 ( 812590 20060 ) M2M3_PR ;
     - la_data_out[110] ( PIN la_data_out[110] ) + USE SIGNAL ;
     - la_data_out[111] ( PIN la_data_out[111] ) + USE SIGNAL ;
     - la_data_out[112] ( PIN la_data_out[112] ) + USE SIGNAL ;
@@ -9006,11 +9222,11 @@ NETS 683 ;
     - la_data_out[119] ( PIN la_data_out[119] ) + USE SIGNAL ;
     - la_data_out[11] ( PIN la_data_out[11] ) ( SLRV_CORE gp[11] ) + USE SIGNAL
       + ROUTED met2 ( 703800 50660 0 ) ( 704030 * )
-      NEW met2 ( 704030 18700 ) ( * 50660 )
-      NEW met2 ( 830530 1700 0 ) ( * 18700 )
-      NEW met3 ( 704030 18700 ) ( 830530 * )
-      NEW met2 ( 704030 18700 ) M2M3_PR
-      NEW met2 ( 830530 18700 ) M2M3_PR ;
+      NEW met2 ( 704030 17340 ) ( * 50660 )
+      NEW met2 ( 830530 1700 0 ) ( * 17340 )
+      NEW met3 ( 704030 17340 ) ( 830530 * )
+      NEW met2 ( 704030 17340 ) M2M3_PR
+      NEW met2 ( 830530 17340 ) M2M3_PR ;
     - la_data_out[120] ( PIN la_data_out[120] ) + USE SIGNAL ;
     - la_data_out[121] ( PIN la_data_out[121] ) + USE SIGNAL ;
     - la_data_out[122] ( PIN la_data_out[122] ) + USE SIGNAL ;
@@ -9020,19 +9236,19 @@ NETS 683 ;
     - la_data_out[126] ( PIN la_data_out[126] ) + USE SIGNAL ;
     - la_data_out[127] ( PIN la_data_out[127] ) + USE SIGNAL ;
     - la_data_out[12] ( PIN la_data_out[12] ) ( SLRV_CORE gp[12] ) + USE SIGNAL
-      + ROUTED met2 ( 848010 1700 0 ) ( * 20060 )
-      NEW met3 ( 721970 20060 ) ( 848010 * )
+      + ROUTED met2 ( 848010 1700 0 ) ( * 15980 )
+      NEW met3 ( 721970 15980 ) ( 848010 * )
       NEW met2 ( 721740 50660 0 ) ( 721970 * )
-      NEW met2 ( 721970 20060 ) ( * 50660 )
-      NEW met2 ( 721970 20060 ) M2M3_PR
-      NEW met2 ( 848010 20060 ) M2M3_PR ;
+      NEW met2 ( 721970 15980 ) ( * 50660 )
+      NEW met2 ( 721970 15980 ) M2M3_PR
+      NEW met2 ( 848010 15980 ) M2M3_PR ;
     - la_data_out[13] ( PIN la_data_out[13] ) ( SLRV_CORE gp[13] ) + USE SIGNAL
-      + ROUTED met2 ( 865950 1700 0 ) ( * 15980 )
-      NEW met3 ( 739910 15980 ) ( 865950 * )
+      + ROUTED met2 ( 865950 1700 0 ) ( * 18700 )
+      NEW met3 ( 739910 18700 ) ( 865950 * )
       NEW met2 ( 739680 50660 0 ) ( 739910 * )
-      NEW met2 ( 739910 15980 ) ( * 50660 )
-      NEW met2 ( 865950 15980 ) M2M3_PR
-      NEW met2 ( 739910 15980 ) M2M3_PR ;
+      NEW met2 ( 739910 18700 ) ( * 50660 )
+      NEW met2 ( 865950 18700 ) M2M3_PR
+      NEW met2 ( 739910 18700 ) M2M3_PR ;
     - la_data_out[14] ( PIN la_data_out[14] ) ( SLRV_CORE gp[14] ) + USE SIGNAL
       + ROUTED met2 ( 883430 1700 0 ) ( * 15300 )
       NEW met3 ( 757850 15300 ) ( 883430 * )
@@ -9049,81 +9265,81 @@ NETS 683 ;
       NEW met2 ( 901370 19380 ) M2M3_PR ;
     - la_data_out[16] ( PIN la_data_out[16] ) ( SLRV_CORE gp[16] ) + USE SIGNAL
       + ROUTED met2 ( 793500 50660 0 ) ( 793730 * )
-      NEW met2 ( 793730 18020 ) ( * 50660 )
-      NEW met2 ( 918850 1700 0 ) ( * 18020 )
-      NEW met3 ( 793730 18020 ) ( 918850 * )
-      NEW met2 ( 793730 18020 ) M2M3_PR
-      NEW met2 ( 918850 18020 ) M2M3_PR ;
+      NEW met2 ( 793730 14620 ) ( * 50660 )
+      NEW met2 ( 918850 1700 0 ) ( * 14620 )
+      NEW met3 ( 793730 14620 ) ( 918850 * )
+      NEW met2 ( 793730 14620 ) M2M3_PR
+      NEW met2 ( 918850 14620 ) M2M3_PR ;
     - la_data_out[17] ( PIN la_data_out[17] ) ( SLRV_CORE gp[17] ) + USE SIGNAL
-      + ROUTED met2 ( 936790 1700 0 ) ( * 17340 )
-      NEW met3 ( 811670 17340 ) ( 936790 * )
+      + ROUTED met2 ( 936790 1700 0 ) ( * 16660 )
+      NEW met3 ( 811670 16660 ) ( 936790 * )
       NEW met2 ( 811440 50660 0 ) ( 811670 * )
-      NEW met2 ( 811670 17340 ) ( * 50660 )
-      NEW met2 ( 811670 17340 ) M2M3_PR
-      NEW met2 ( 936790 17340 ) M2M3_PR ;
+      NEW met2 ( 811670 16660 ) ( * 50660 )
+      NEW met2 ( 811670 16660 ) M2M3_PR
+      NEW met2 ( 936790 16660 ) M2M3_PR ;
     - la_data_out[18] ( PIN la_data_out[18] ) ( SLRV_CORE gp[18] ) + USE SIGNAL
-      + ROUTED met2 ( 954270 1700 0 ) ( * 14620 )
-      NEW met3 ( 829610 14620 ) ( 954270 * )
+      + ROUTED met2 ( 954270 1700 0 ) ( * 18020 )
+      NEW met3 ( 829610 18020 ) ( 954270 * )
       NEW met2 ( 829380 50660 0 ) ( 829610 * )
-      NEW met2 ( 829610 14620 ) ( * 50660 )
-      NEW met2 ( 954270 14620 ) M2M3_PR
-      NEW met2 ( 829610 14620 ) M2M3_PR ;
+      NEW met2 ( 829610 18020 ) ( * 50660 )
+      NEW met2 ( 954270 18020 ) M2M3_PR
+      NEW met2 ( 829610 18020 ) M2M3_PR ;
     - la_data_out[19] ( PIN la_data_out[19] ) ( SLRV_CORE gp[19] ) + USE SIGNAL
-      + ROUTED met2 ( 972210 1700 0 ) ( * 16660 )
-      NEW met3 ( 847550 16660 ) ( 972210 * )
+      + ROUTED met2 ( 972210 1700 0 ) ( * 17340 )
+      NEW met3 ( 847550 17340 ) ( 972210 * )
       NEW met2 ( 847320 50660 0 ) ( 847550 * )
-      NEW met2 ( 847550 16660 ) ( * 50660 )
-      NEW met2 ( 972210 16660 ) M2M3_PR
-      NEW met2 ( 847550 16660 ) M2M3_PR ;
+      NEW met2 ( 847550 17340 ) ( * 50660 )
+      NEW met2 ( 972210 17340 ) M2M3_PR
+      NEW met2 ( 847550 17340 ) M2M3_PR ;
     - la_data_out[1] ( PIN la_data_out[1] ) ( SLRV_CORE gp[1] ) + USE SIGNAL
-      + ROUTED met2 ( 652970 1700 0 ) ( * 17340 )
-      NEW met3 ( 524630 17340 ) ( 652970 * )
+      + ROUTED met2 ( 652970 1700 0 ) ( * 18020 )
+      NEW met3 ( 524630 18020 ) ( 652970 * )
       NEW met2 ( 524400 50660 0 ) ( 524630 * )
-      NEW met2 ( 524630 17340 ) ( * 50660 )
-      NEW met2 ( 524630 17340 ) M2M3_PR
-      NEW met2 ( 652970 17340 ) M2M3_PR ;
+      NEW met2 ( 524630 18020 ) ( * 50660 )
+      NEW met2 ( 524630 18020 ) M2M3_PR
+      NEW met2 ( 652970 18020 ) M2M3_PR ;
     - la_data_out[20] ( PIN la_data_out[20] ) ( SLRV_CORE gp[20] ) + USE SIGNAL
-      + ROUTED met2 ( 989690 1700 0 ) ( * 20060 )
+      + ROUTED met2 ( 989690 1700 0 ) ( * 15980 )
       NEW met2 ( 865260 50660 0 ) ( 865490 * )
-      NEW met2 ( 865490 20060 ) ( * 50660 )
-      NEW met3 ( 865490 20060 ) ( 989690 * )
-      NEW met2 ( 865490 20060 ) M2M3_PR
-      NEW met2 ( 989690 20060 ) M2M3_PR ;
+      NEW met2 ( 865490 15980 ) ( * 50660 )
+      NEW met3 ( 865490 15980 ) ( 989690 * )
+      NEW met2 ( 865490 15980 ) M2M3_PR
+      NEW met2 ( 989690 15980 ) M2M3_PR ;
     - la_data_out[21] ( PIN la_data_out[21] ) ( SLRV_CORE gp[21] ) + USE SIGNAL
       + ROUTED met2 ( 883200 50660 0 ) ( 883430 * )
-      NEW met2 ( 883430 15980 ) ( * 50660 )
-      NEW met2 ( 1007630 1700 0 ) ( * 15980 )
-      NEW met3 ( 883430 15980 ) ( 1007630 * )
-      NEW met2 ( 883430 15980 ) M2M3_PR
-      NEW met2 ( 1007630 15980 ) M2M3_PR ;
+      NEW met2 ( 883430 18700 ) ( * 50660 )
+      NEW met2 ( 1007630 1700 0 ) ( * 18700 )
+      NEW met3 ( 883430 18700 ) ( 1007630 * )
+      NEW met2 ( 883430 18700 ) M2M3_PR
+      NEW met2 ( 1007630 18700 ) M2M3_PR ;
     - la_data_out[22] ( PIN la_data_out[22] ) ( SLRV_CORE gp[22] ) + USE SIGNAL
-      + ROUTED met2 ( 901140 50660 0 ) ( 902290 * )
-      NEW met2 ( 902290 18700 ) ( * 50660 )
-      NEW met2 ( 1025570 1700 0 ) ( * 18700 )
-      NEW met3 ( 902290 18700 ) ( 1025570 * )
-      NEW met2 ( 902290 18700 ) M2M3_PR
-      NEW met2 ( 1025570 18700 ) M2M3_PR ;
+      + ROUTED met2 ( 901140 50660 0 ) ( 901370 * )
+      NEW met2 ( 901370 20060 ) ( * 50660 )
+      NEW met2 ( 1025570 1700 0 ) ( * 20060 )
+      NEW met3 ( 901370 20060 ) ( 1025570 * )
+      NEW met2 ( 901370 20060 ) M2M3_PR
+      NEW met2 ( 1025570 20060 ) M2M3_PR ;
     - la_data_out[23] ( PIN la_data_out[23] ) ( SLRV_CORE gp[23] ) + USE SIGNAL
-      + ROUTED met2 ( 1043050 1700 0 ) ( * 19380 )
-      NEW met3 ( 919310 19380 ) ( 1043050 * )
+      + ROUTED met2 ( 1043050 1700 0 ) ( * 15300 )
+      NEW met3 ( 919310 15300 ) ( 1043050 * )
       NEW met2 ( 919080 50660 0 ) ( 919310 * )
-      NEW met2 ( 919310 19380 ) ( * 50660 )
-      NEW met2 ( 919310 19380 ) M2M3_PR
-      NEW met2 ( 1043050 19380 ) M2M3_PR ;
+      NEW met2 ( 919310 15300 ) ( * 50660 )
+      NEW met2 ( 919310 15300 ) M2M3_PR
+      NEW met2 ( 1043050 15300 ) M2M3_PR ;
     - la_data_out[24] ( PIN la_data_out[24] ) ( SLRV_CORE gp[24] ) + USE SIGNAL
-      + ROUTED met2 ( 1060990 1700 0 ) ( * 18020 )
-      NEW met3 ( 937250 18020 ) ( 1060990 * )
+      + ROUTED met2 ( 1060990 1700 0 ) ( * 19380 )
+      NEW met3 ( 937250 19380 ) ( 1060990 * )
       NEW met2 ( 937020 50660 0 ) ( 937250 * )
-      NEW met2 ( 937250 18020 ) ( * 50660 )
-      NEW met2 ( 1060990 18020 ) M2M3_PR
-      NEW met2 ( 937250 18020 ) M2M3_PR ;
+      NEW met2 ( 937250 19380 ) ( * 50660 )
+      NEW met2 ( 1060990 19380 ) M2M3_PR
+      NEW met2 ( 937250 19380 ) M2M3_PR ;
     - la_data_out[25] ( PIN la_data_out[25] ) ( SLRV_CORE gp[25] ) + USE SIGNAL
-      + ROUTED met2 ( 1078470 1700 0 ) ( * 17340 )
+      + ROUTED met2 ( 1078470 1700 0 ) ( * 18020 )
       NEW met2 ( 954960 50660 0 ) ( 955190 * )
-      NEW met2 ( 955190 17340 ) ( * 50660 )
-      NEW met3 ( 955190 17340 ) ( 1078470 * )
-      NEW met2 ( 955190 17340 ) M2M3_PR
-      NEW met2 ( 1078470 17340 ) M2M3_PR ;
+      NEW met2 ( 955190 18020 ) ( * 50660 )
+      NEW met3 ( 955190 18020 ) ( 1078470 * )
+      NEW met2 ( 955190 18020 ) M2M3_PR
+      NEW met2 ( 1078470 18020 ) M2M3_PR ;
     - la_data_out[26] ( PIN la_data_out[26] ) ( SLRV_CORE gp[26] ) + USE SIGNAL
       + ROUTED met2 ( 1096410 1700 0 ) ( * 16660 )
       NEW met2 ( 972900 50660 0 ) ( 973130 * )
@@ -9133,53 +9349,53 @@ NETS 683 ;
       NEW met2 ( 1096410 16660 ) M2M3_PR ;
     - la_data_out[27] ( PIN la_data_out[27] ) ( SLRV_CORE gp[27] ) + USE SIGNAL
       + ROUTED met2 ( 990840 50660 0 ) ( 991070 * )
-      NEW met2 ( 991070 15300 ) ( * 50660 )
-      NEW met2 ( 1113890 1700 0 ) ( * 15300 )
-      NEW met3 ( 991070 15300 ) ( 1113890 * )
-      NEW met2 ( 991070 15300 ) M2M3_PR
-      NEW met2 ( 1113890 15300 ) M2M3_PR ;
+      NEW met2 ( 991070 15980 ) ( * 50660 )
+      NEW met2 ( 1113890 1700 0 ) ( * 15980 )
+      NEW met3 ( 991070 15980 ) ( 1113890 * )
+      NEW met2 ( 991070 15980 ) M2M3_PR
+      NEW met2 ( 1113890 15980 ) M2M3_PR ;
     - la_data_out[28] ( PIN la_data_out[28] ) ( SLRV_CORE gp[28] ) + USE SIGNAL
-      + ROUTED met2 ( 1131830 1700 0 ) ( * 20060 )
-      NEW met3 ( 1009010 20060 ) ( 1131830 * )
+      + ROUTED met2 ( 1131830 1700 0 ) ( * 17340 )
+      NEW met3 ( 1009010 17340 ) ( 1131830 * )
       NEW met2 ( 1008780 50660 0 ) ( 1009010 * )
-      NEW met2 ( 1009010 20060 ) ( * 50660 )
-      NEW met2 ( 1009010 20060 ) M2M3_PR
-      NEW met2 ( 1131830 20060 ) M2M3_PR ;
+      NEW met2 ( 1009010 17340 ) ( * 50660 )
+      NEW met2 ( 1009010 17340 ) M2M3_PR
+      NEW met2 ( 1131830 17340 ) M2M3_PR ;
     - la_data_out[29] ( PIN la_data_out[29] ) ( SLRV_CORE gp[29] ) + USE SIGNAL
-      + ROUTED met2 ( 1149310 1700 0 ) ( * 15980 )
-      NEW met3 ( 1026950 15980 ) ( 1149310 * )
+      + ROUTED met2 ( 1149310 1700 0 ) ( * 20060 )
+      NEW met3 ( 1026950 20060 ) ( 1149310 * )
       NEW met2 ( 1026720 50660 0 ) ( 1026950 * )
-      NEW met2 ( 1026950 15980 ) ( * 50660 )
-      NEW met2 ( 1149310 15980 ) M2M3_PR
-      NEW met2 ( 1026950 15980 ) M2M3_PR ;
+      NEW met2 ( 1026950 20060 ) ( * 50660 )
+      NEW met2 ( 1149310 20060 ) M2M3_PR
+      NEW met2 ( 1026950 20060 ) M2M3_PR ;
     - la_data_out[2] ( PIN la_data_out[2] ) ( SLRV_CORE gp[2] ) + USE SIGNAL
-      + ROUTED met2 ( 670910 1700 0 ) ( * 16660 )
-      NEW met3 ( 542570 16660 ) ( 670910 * )
+      + ROUTED met2 ( 670910 1700 0 ) ( * 17340 )
+      NEW met3 ( 542570 17340 ) ( 670910 * )
       NEW met2 ( 542340 50660 0 ) ( 542570 * )
-      NEW met2 ( 542570 16660 ) ( * 50660 )
-      NEW met2 ( 670910 16660 ) M2M3_PR
-      NEW met2 ( 542570 16660 ) M2M3_PR ;
+      NEW met2 ( 542570 17340 ) ( * 50660 )
+      NEW met2 ( 670910 17340 ) M2M3_PR
+      NEW met2 ( 542570 17340 ) M2M3_PR ;
     - la_data_out[30] ( PIN la_data_out[30] ) ( SLRV_CORE gp[30] ) + USE SIGNAL
-      + ROUTED met2 ( 1167250 1700 0 ) ( * 18700 )
-      NEW met3 ( 1044890 18700 ) ( 1167250 * )
+      + ROUTED met2 ( 1167250 1700 0 ) ( * 15300 )
+      NEW met3 ( 1044890 15300 ) ( 1167250 * )
       NEW met2 ( 1044660 50660 0 ) ( 1044890 * )
-      NEW met2 ( 1044890 18700 ) ( * 50660 )
-      NEW met2 ( 1167250 18700 ) M2M3_PR
-      NEW met2 ( 1044890 18700 ) M2M3_PR ;
+      NEW met2 ( 1044890 15300 ) ( * 50660 )
+      NEW met2 ( 1167250 15300 ) M2M3_PR
+      NEW met2 ( 1044890 15300 ) M2M3_PR ;
     - la_data_out[31] ( PIN la_data_out[31] ) ( SLRV_CORE gp[31] ) + USE SIGNAL
-      + ROUTED met2 ( 1185190 1700 0 ) ( * 18020 )
+      + ROUTED met2 ( 1185190 1700 0 ) ( * 18700 )
       NEW met2 ( 1062600 50660 0 ) ( 1062830 * )
-      NEW met2 ( 1062830 18020 ) ( * 50660 )
-      NEW met3 ( 1062830 18020 ) ( 1185190 * )
-      NEW met2 ( 1062830 18020 ) M2M3_PR
-      NEW met2 ( 1185190 18020 ) M2M3_PR ;
+      NEW met2 ( 1062830 18700 ) ( * 50660 )
+      NEW met3 ( 1062830 18700 ) ( 1185190 * )
+      NEW met2 ( 1062830 18700 ) M2M3_PR
+      NEW met2 ( 1185190 18700 ) M2M3_PR ;
     - la_data_out[32] ( PIN la_data_out[32] ) ( SLRV_CORE a7[0] ) + USE SIGNAL
       + ROUTED met2 ( 1080540 50660 0 ) ( 1080770 * )
-      NEW met2 ( 1080770 17340 ) ( * 50660 )
-      NEW met2 ( 1202670 1700 0 ) ( * 17340 )
-      NEW met3 ( 1080770 17340 ) ( 1202670 * )
-      NEW met2 ( 1080770 17340 ) M2M3_PR
-      NEW met2 ( 1202670 17340 ) M2M3_PR ;
+      NEW met2 ( 1080770 18020 ) ( * 50660 )
+      NEW met2 ( 1202670 1700 0 ) ( * 18020 )
+      NEW met3 ( 1080770 18020 ) ( 1202670 * )
+      NEW met2 ( 1080770 18020 ) M2M3_PR
+      NEW met2 ( 1202670 18020 ) M2M3_PR ;
     - la_data_out[33] ( PIN la_data_out[33] ) ( SLRV_CORE a7[1] ) + USE SIGNAL
       + ROUTED met2 ( 1220610 1700 0 ) ( * 16660 )
       NEW met3 ( 1098710 16660 ) ( 1220610 * )
@@ -9195,12 +9411,12 @@ NETS 683 ;
       NEW met2 ( 1116650 19380 ) M2M3_PR
       NEW met2 ( 1238090 19380 ) M2M3_PR ;
     - la_data_out[35] ( PIN la_data_out[35] ) ( SLRV_CORE a7[3] ) + USE SIGNAL
-      + ROUTED met2 ( 1256030 1700 0 ) ( * 20060 )
-      NEW met3 ( 1134590 20060 ) ( 1256030 * )
+      + ROUTED met2 ( 1256030 1700 0 ) ( * 17340 )
+      NEW met3 ( 1134590 17340 ) ( 1256030 * )
       NEW met2 ( 1134360 50660 0 ) ( 1134590 * )
-      NEW met2 ( 1134590 20060 ) ( * 50660 )
-      NEW met2 ( 1256030 20060 ) M2M3_PR
-      NEW met2 ( 1134590 20060 ) M2M3_PR ;
+      NEW met2 ( 1134590 17340 ) ( * 50660 )
+      NEW met2 ( 1256030 17340 ) M2M3_PR
+      NEW met2 ( 1134590 17340 ) M2M3_PR ;
     - la_data_out[36] ( PIN la_data_out[36] ) ( SLRV_CORE a7[4] ) + USE SIGNAL
       + ROUTED met2 ( 1273510 1700 0 ) ( * 15980 )
       NEW met2 ( 1152300 50660 0 ) ( 1152530 * )
@@ -9210,32 +9426,32 @@ NETS 683 ;
       NEW met2 ( 1273510 15980 ) M2M3_PR ;
     - la_data_out[37] ( PIN la_data_out[37] ) ( SLRV_CORE a7[5] ) + USE SIGNAL
       + ROUTED met2 ( 1170240 50660 0 ) ( 1170470 * )
-      NEW met2 ( 1170470 18700 ) ( * 50660 )
-      NEW met2 ( 1291450 1700 0 ) ( * 18700 )
-      NEW met3 ( 1170470 18700 ) ( 1291450 * )
-      NEW met2 ( 1170470 18700 ) M2M3_PR
-      NEW met2 ( 1291450 18700 ) M2M3_PR ;
+      NEW met2 ( 1170470 20060 ) ( * 50660 )
+      NEW met2 ( 1291450 1700 0 ) ( * 20060 )
+      NEW met3 ( 1170470 20060 ) ( 1291450 * )
+      NEW met2 ( 1170470 20060 ) M2M3_PR
+      NEW met2 ( 1291450 20060 ) M2M3_PR ;
     - la_data_out[38] ( PIN la_data_out[38] ) ( SLRV_CORE a7[6] ) + USE SIGNAL
       + ROUTED met2 ( 1188180 50660 0 ) ( 1188410 * )
-      NEW met2 ( 1188410 18020 ) ( * 50660 )
-      NEW met2 ( 1308930 1700 0 ) ( * 18020 )
-      NEW met3 ( 1188410 18020 ) ( 1308930 * )
-      NEW met2 ( 1188410 18020 ) M2M3_PR
-      NEW met2 ( 1308930 18020 ) M2M3_PR ;
+      NEW met2 ( 1188410 18700 ) ( * 50660 )
+      NEW met2 ( 1308930 1700 0 ) ( * 18700 )
+      NEW met3 ( 1188410 18700 ) ( 1308930 * )
+      NEW met2 ( 1188410 18700 ) M2M3_PR
+      NEW met2 ( 1308930 18700 ) M2M3_PR ;
     - la_data_out[39] ( PIN la_data_out[39] ) ( SLRV_CORE a7[7] ) + USE SIGNAL
-      + ROUTED met2 ( 1326870 1700 0 ) ( * 17340 )
-      NEW met3 ( 1206350 17340 ) ( 1326870 * )
+      + ROUTED met2 ( 1326870 1700 0 ) ( * 18020 )
+      NEW met3 ( 1206350 18020 ) ( 1326870 * )
       NEW met2 ( 1206120 50660 0 ) ( 1206350 * )
-      NEW met2 ( 1206350 17340 ) ( * 50660 )
-      NEW met2 ( 1206350 17340 ) M2M3_PR
-      NEW met2 ( 1326870 17340 ) M2M3_PR ;
+      NEW met2 ( 1206350 18020 ) ( * 50660 )
+      NEW met2 ( 1206350 18020 ) M2M3_PR
+      NEW met2 ( 1326870 18020 ) M2M3_PR ;
     - la_data_out[3] ( PIN la_data_out[3] ) ( SLRV_CORE gp[3] ) + USE SIGNAL
-      + ROUTED met2 ( 688390 1700 0 ) ( * 18700 )
-      NEW met3 ( 560510 18700 ) ( 688390 * )
+      + ROUTED met2 ( 688390 1700 0 ) ( * 15980 )
+      NEW met3 ( 560510 15980 ) ( 688390 * )
       NEW met2 ( 560280 50660 0 ) ( 560510 * )
-      NEW met2 ( 560510 18700 ) ( * 50660 )
-      NEW met2 ( 688390 18700 ) M2M3_PR
-      NEW met2 ( 560510 18700 ) M2M3_PR ;
+      NEW met2 ( 560510 15980 ) ( * 50660 )
+      NEW met2 ( 688390 15980 ) M2M3_PR
+      NEW met2 ( 560510 15980 ) M2M3_PR ;
     - la_data_out[40] ( PIN la_data_out[40] ) ( SLRV_CORE a7[8] ) + USE SIGNAL
       + ROUTED met2 ( 1344350 1700 0 ) ( * 15300 )
       NEW met3 ( 1224290 15300 ) ( 1344350 * )
@@ -9260,13 +9476,13 @@ NETS 683 ;
     - la_data_out[43] ( PIN la_data_out[43] ) ( SLRV_CORE a7[11] ) + USE SIGNAL
       + ROUTED met2 ( 1279490 39100 ) ( * 50660 )
       NEW met2 ( 1277880 50660 0 ) ( 1279490 * )
-      NEW met2 ( 1397710 1700 0 ) ( * 17340 )
-      NEW met3 ( 1328250 17340 ) ( 1397710 * )
+      NEW met2 ( 1397710 1700 0 ) ( * 18020 )
+      NEW met3 ( 1328250 18020 ) ( 1397710 * )
       NEW met3 ( 1279490 39100 ) ( 1328250 * )
-      NEW met2 ( 1328250 17340 ) ( * 39100 )
+      NEW met2 ( 1328250 18020 ) ( * 39100 )
       NEW met2 ( 1279490 39100 ) M2M3_PR
-      NEW met2 ( 1328250 17340 ) M2M3_PR
-      NEW met2 ( 1397710 17340 ) M2M3_PR
+      NEW met2 ( 1328250 18020 ) M2M3_PR
+      NEW met2 ( 1397710 18020 ) M2M3_PR
       NEW met2 ( 1328250 39100 ) M2M3_PR ;
     - la_data_out[44] ( PIN la_data_out[44] ) ( SLRV_CORE a7[12] ) + USE SIGNAL
       + ROUTED met2 ( 1345730 20060 ) ( * 39780 )
@@ -9280,12 +9496,12 @@ NETS 683 ;
       NEW met2 ( 1415650 20060 ) M2M3_PR
       NEW met2 ( 1296970 39780 ) M2M3_PR ;
     - la_data_out[45] ( PIN la_data_out[45] ) ( SLRV_CORE a7[13] ) + USE SIGNAL
-      + ROUTED met2 ( 1433130 1700 0 ) ( * 18020 )
-      NEW met3 ( 1313990 18020 ) ( 1433130 * )
+      + ROUTED met2 ( 1433130 1700 0 ) ( * 17340 )
+      NEW met3 ( 1313990 17340 ) ( 1433130 * )
       NEW met2 ( 1313760 50660 0 ) ( 1313990 * )
-      NEW met2 ( 1313990 18020 ) ( * 50660 )
-      NEW met2 ( 1313990 18020 ) M2M3_PR
-      NEW met2 ( 1433130 18020 ) M2M3_PR ;
+      NEW met2 ( 1313990 17340 ) ( * 50660 )
+      NEW met2 ( 1313990 17340 ) M2M3_PR
+      NEW met2 ( 1433130 17340 ) M2M3_PR ;
     - la_data_out[46] ( PIN la_data_out[46] ) ( SLRV_CORE a7[14] ) + USE SIGNAL
       + ROUTED met2 ( 1451070 1700 0 ) ( * 18700 )
       NEW met2 ( 1365970 18700 ) ( * 41140 )
@@ -9322,30 +9538,28 @@ NETS 683 ;
     - la_data_out[49] ( PIN la_data_out[49] ) ( SLRV_CORE a7[17] ) + USE SIGNAL
       + ROUTED met2 ( 1386210 37060 ) ( * 50660 )
       NEW met2 ( 1385520 50660 0 ) ( 1386210 * )
-      NEW met2 ( 1435430 18020 ) ( * 37060 )
-      NEW met2 ( 1503970 1700 0 ) ( * 18020 )
-      NEW met3 ( 1435430 18020 ) ( 1503970 * )
+      NEW met2 ( 1435430 17340 ) ( * 37060 )
+      NEW met2 ( 1503970 1700 0 ) ( * 17340 )
+      NEW met3 ( 1435430 17340 ) ( 1503970 * )
       NEW met3 ( 1386210 37060 ) ( 1435430 * )
-      NEW met2 ( 1435430 18020 ) M2M3_PR
+      NEW met2 ( 1435430 17340 ) M2M3_PR
       NEW met2 ( 1386210 37060 ) M2M3_PR
       NEW met2 ( 1435430 37060 ) M2M3_PR
-      NEW met2 ( 1503970 18020 ) M2M3_PR ;
+      NEW met2 ( 1503970 17340 ) M2M3_PR ;
     - la_data_out[4] ( PIN la_data_out[4] ) ( SLRV_CORE gp[4] ) + USE SIGNAL
-      + ROUTED met3 ( 578450 15300 ) ( 580060 * )
-      NEW met3 ( 580060 15300 ) ( * 15980 )
-      NEW met2 ( 706330 1700 0 ) ( * 15980 )
+      + ROUTED met2 ( 706330 1700 0 ) ( * 18700 )
       NEW met2 ( 578220 50660 0 ) ( 578450 * )
-      NEW met2 ( 578450 15300 ) ( * 50660 )
-      NEW met3 ( 580060 15980 ) ( 706330 * )
-      NEW met2 ( 578450 15300 ) M2M3_PR
-      NEW met2 ( 706330 15980 ) M2M3_PR ;
+      NEW met2 ( 578450 18700 ) ( * 50660 )
+      NEW met3 ( 578450 18700 ) ( 706330 * )
+      NEW met2 ( 578450 18700 ) M2M3_PR
+      NEW met2 ( 706330 18700 ) M2M3_PR ;
     - la_data_out[50] ( PIN la_data_out[50] ) ( SLRV_CORE a7[18] ) + USE SIGNAL
-      + ROUTED met2 ( 1521910 1700 0 ) ( * 17340 )
-      NEW met3 ( 1403690 17340 ) ( 1521910 * )
+      + ROUTED met2 ( 1521910 1700 0 ) ( * 18020 )
+      NEW met3 ( 1403690 18020 ) ( 1521910 * )
       NEW met2 ( 1403460 50660 0 ) ( 1403690 * )
-      NEW met2 ( 1403690 17340 ) ( * 50660 )
-      NEW met2 ( 1403690 17340 ) M2M3_PR
-      NEW met2 ( 1521910 17340 ) M2M3_PR ;
+      NEW met2 ( 1403690 18020 ) ( * 50660 )
+      NEW met2 ( 1403690 18020 ) M2M3_PR
+      NEW met2 ( 1521910 18020 ) M2M3_PR ;
     - la_data_out[51] ( PIN la_data_out[51] ) ( SLRV_CORE a7[19] ) + USE SIGNAL
       + ROUTED met2 ( 1539850 1700 0 ) ( * 20060 )
       NEW met2 ( 1462570 20060 ) ( * 36380 )
@@ -9382,13 +9596,13 @@ NETS 683 ;
     - la_data_out[54] ( PIN la_data_out[54] ) ( SLRV_CORE a7[22] ) + USE SIGNAL
       + ROUTED met2 ( 1476370 37060 ) ( * 50660 )
       NEW met2 ( 1475220 50660 0 ) ( 1476370 * )
-      NEW met2 ( 1592750 1700 0 ) ( * 15980 )
-      NEW met3 ( 1525130 15980 ) ( 1592750 * )
+      NEW met2 ( 1592750 1700 0 ) ( * 18020 )
+      NEW met3 ( 1525130 18020 ) ( 1592750 * )
       NEW met3 ( 1476370 37060 ) ( 1525130 * )
-      NEW met2 ( 1525130 15980 ) ( * 37060 )
+      NEW met2 ( 1525130 18020 ) ( * 37060 )
       NEW met2 ( 1476370 37060 ) M2M3_PR
-      NEW met2 ( 1525130 15980 ) M2M3_PR
-      NEW met2 ( 1592750 15980 ) M2M3_PR
+      NEW met2 ( 1525130 18020 ) M2M3_PR
+      NEW met2 ( 1592750 18020 ) M2M3_PR
       NEW met2 ( 1525130 37060 ) M2M3_PR ;
     - la_data_out[55] ( PIN la_data_out[55] ) ( SLRV_CORE a7[23] ) + USE SIGNAL
       + ROUTED met2 ( 1552270 15300 ) ( * 41140 )
@@ -9402,46 +9616,46 @@ NETS 683 ;
       NEW met2 ( 1610690 15300 ) M2M3_PR
       NEW met2 ( 1494770 41140 ) M2M3_PR ;
     - la_data_out[56] ( PIN la_data_out[56] ) ( SLRV_CORE a7[24] ) + USE SIGNAL
-      + ROUTED met2 ( 1628170 1700 0 ) ( * 18020 )
-      NEW met3 ( 1511330 18020 ) ( 1628170 * )
+      + ROUTED met2 ( 1628170 1700 0 ) ( * 17340 )
+      NEW met3 ( 1511330 17340 ) ( 1628170 * )
       NEW met2 ( 1511100 50660 0 ) ( 1511330 * )
-      NEW met2 ( 1511330 18020 ) ( * 50660 )
-      NEW met2 ( 1511330 18020 ) M2M3_PR
-      NEW met2 ( 1628170 18020 ) M2M3_PR ;
+      NEW met2 ( 1511330 17340 ) ( * 50660 )
+      NEW met2 ( 1511330 17340 ) M2M3_PR
+      NEW met2 ( 1628170 17340 ) M2M3_PR ;
     - la_data_out[57] ( PIN la_data_out[57] ) ( SLRV_CORE a7[25] ) + USE SIGNAL
-      + ROUTED met2 ( 1646110 1700 0 ) ( * 17340 )
-      NEW met2 ( 1566070 17340 ) ( * 36380 )
-      NEW met3 ( 1566070 17340 ) ( 1646110 * )
+      + ROUTED met2 ( 1646110 1700 0 ) ( * 18700 )
+      NEW met2 ( 1566070 18700 ) ( * 36380 )
+      NEW met3 ( 1566070 18700 ) ( 1646110 * )
       NEW met2 ( 1530650 36380 ) ( * 50660 )
       NEW met2 ( 1529040 50660 0 ) ( 1530650 * )
       NEW met3 ( 1530650 36380 ) ( 1566070 * )
-      NEW met2 ( 1566070 17340 ) M2M3_PR
-      NEW met2 ( 1646110 17340 ) M2M3_PR
+      NEW met2 ( 1566070 18700 ) M2M3_PR
+      NEW met2 ( 1646110 18700 ) M2M3_PR
       NEW met2 ( 1566070 36380 ) M2M3_PR
       NEW met2 ( 1530650 36380 ) M2M3_PR ;
     - la_data_out[58] ( PIN la_data_out[58] ) ( SLRV_CORE a7[26] ) + USE SIGNAL
-      + ROUTED met2 ( 1663590 1700 0 ) ( * 19380 )
+      + ROUTED met2 ( 1663590 1700 0 ) ( * 20060 )
       NEW met2 ( 1548590 35020 ) ( * 50660 )
       NEW met2 ( 1546980 50660 0 ) ( 1548590 * )
-      NEW met3 ( 1580330 19380 ) ( 1663590 * )
+      NEW met3 ( 1580330 20060 ) ( 1663590 * )
       NEW met3 ( 1548590 35020 ) ( 1580330 * )
-      NEW met2 ( 1580330 19380 ) ( * 35020 )
-      NEW met2 ( 1663590 19380 ) M2M3_PR
+      NEW met2 ( 1580330 20060 ) ( * 35020 )
+      NEW met2 ( 1663590 20060 ) M2M3_PR
       NEW met2 ( 1548590 35020 ) M2M3_PR
-      NEW met2 ( 1580330 19380 ) M2M3_PR
+      NEW met2 ( 1580330 20060 ) M2M3_PR
       NEW met2 ( 1580330 35020 ) M2M3_PR ;
     - la_data_out[59] ( PIN la_data_out[59] ) ( SLRV_CORE a7[27] ) + USE SIGNAL
       + ROUTED met2 ( 1566070 41140 ) ( * 50660 )
       NEW met2 ( 1564920 50660 0 ) ( 1566070 * )
-      NEW met2 ( 1681530 1700 0 ) ( * 20060 )
-      NEW met3 ( 1607470 20060 ) ( 1681530 * )
+      NEW met2 ( 1681530 1700 0 ) ( * 15980 )
+      NEW met3 ( 1607470 15980 ) ( 1681530 * )
       NEW met2 ( 1583550 37060 ) ( * 41140 )
       NEW met3 ( 1583550 37060 ) ( 1607470 * )
       NEW met3 ( 1566070 41140 ) ( 1583550 * )
-      NEW met2 ( 1607470 20060 ) ( * 37060 )
+      NEW met2 ( 1607470 15980 ) ( * 37060 )
       NEW met2 ( 1566070 41140 ) M2M3_PR
-      NEW met2 ( 1607470 20060 ) M2M3_PR
-      NEW met2 ( 1681530 20060 ) M2M3_PR
+      NEW met2 ( 1607470 15980 ) M2M3_PR
+      NEW met2 ( 1681530 15980 ) M2M3_PR
       NEW met2 ( 1583550 41140 ) M2M3_PR
       NEW met2 ( 1583550 37060 ) M2M3_PR
       NEW met2 ( 1607470 37060 ) M2M3_PR ;
@@ -9453,14 +9667,14 @@ NETS 683 ;
       NEW met2 ( 596390 15300 ) M2M3_PR
       NEW met2 ( 723810 15300 ) M2M3_PR ;
     - la_data_out[60] ( PIN la_data_out[60] ) ( SLRV_CORE a7[28] ) + USE SIGNAL
-      + ROUTED met2 ( 1699470 1700 0 ) ( * 18700 )
-      NEW met3 ( 1618050 18700 ) ( 1699470 * )
+      + ROUTED met2 ( 1699470 1700 0 ) ( * 19380 )
+      NEW met3 ( 1618050 19380 ) ( 1699470 * )
       NEW met3 ( 1584470 41140 ) ( 1618050 * )
       NEW met2 ( 1584470 41140 ) ( * 50660 )
       NEW met2 ( 1582860 50660 0 ) ( 1584470 * )
-      NEW met2 ( 1618050 18700 ) ( * 41140 )
-      NEW met2 ( 1618050 18700 ) M2M3_PR
-      NEW met2 ( 1699470 18700 ) M2M3_PR
+      NEW met2 ( 1618050 19380 ) ( * 41140 )
+      NEW met2 ( 1618050 19380 ) M2M3_PR
+      NEW met2 ( 1699470 19380 ) M2M3_PR
       NEW met2 ( 1618050 41140 ) M2M3_PR
       NEW met2 ( 1584470 41140 ) M2M3_PR ;
     - la_data_out[61] ( PIN la_data_out[61] ) ( SLRV_CORE a7[29] ) + USE SIGNAL
@@ -9535,12 +9749,12 @@ NETS 683 ;
     - la_data_out[88] ( PIN la_data_out[88] ) + USE SIGNAL ;
     - la_data_out[89] ( PIN la_data_out[89] ) + USE SIGNAL ;
     - la_data_out[8] ( PIN la_data_out[8] ) ( SLRV_CORE gp[8] ) + USE SIGNAL
-      + ROUTED met2 ( 777170 1700 0 ) ( * 18020 )
-      NEW met3 ( 650210 18020 ) ( 777170 * )
+      + ROUTED met2 ( 777170 1700 0 ) ( * 16660 )
+      NEW met3 ( 650210 16660 ) ( 777170 * )
       NEW met2 ( 649980 50660 0 ) ( 650210 * )
-      NEW met2 ( 650210 18020 ) ( * 50660 )
-      NEW met2 ( 777170 18020 ) M2M3_PR
-      NEW met2 ( 650210 18020 ) M2M3_PR ;
+      NEW met2 ( 650210 16660 ) ( * 50660 )
+      NEW met2 ( 777170 16660 ) M2M3_PR
+      NEW met2 ( 650210 16660 ) M2M3_PR ;
     - la_data_out[90] ( PIN la_data_out[90] ) + USE SIGNAL ;
     - la_data_out[91] ( PIN la_data_out[91] ) + USE SIGNAL ;
     - la_data_out[92] ( PIN la_data_out[92] ) + USE SIGNAL ;
@@ -9552,12 +9766,12 @@ NETS 683 ;
     - la_data_out[98] ( PIN la_data_out[98] ) + USE SIGNAL ;
     - la_data_out[99] ( PIN la_data_out[99] ) + USE SIGNAL ;
     - la_data_out[9] ( PIN la_data_out[9] ) ( SLRV_CORE gp[9] ) + USE SIGNAL
-      + ROUTED met2 ( 794650 1700 0 ) ( * 17340 )
+      + ROUTED met2 ( 794650 1700 0 ) ( * 18020 )
       NEW met2 ( 667920 50660 0 ) ( 668150 * )
-      NEW met2 ( 668150 17340 ) ( * 50660 )
-      NEW met3 ( 668150 17340 ) ( 794650 * )
-      NEW met2 ( 668150 17340 ) M2M3_PR
-      NEW met2 ( 794650 17340 ) M2M3_PR ;
+      NEW met2 ( 668150 18020 ) ( * 50660 )
+      NEW met3 ( 668150 18020 ) ( 794650 * )
+      NEW met2 ( 668150 18020 ) M2M3_PR
+      NEW met2 ( 794650 18020 ) M2M3_PR ;
     - la_oenb[0] ( PIN la_oenb[0] ) + USE SIGNAL ;
     - la_oenb[100] ( PIN la_oenb[100] ) + USE SIGNAL ;
     - la_oenb[101] ( PIN la_oenb[101] ) + USE SIGNAL ;
@@ -9690,11 +9904,15 @@ NETS 683 ;
     - user_irq[0] ( PIN user_irq[0] ) + USE SIGNAL ;
     - user_irq[1] ( PIN user_irq[1] ) + USE SIGNAL ;
     - user_irq[2] ( PIN user_irq[2] ) + USE SIGNAL ;
-    - wb_clk_i ( PIN wb_clk_i ) ( SLRV_IMEM clk1 ) ( SLRV_IMEM clk0 ) ( SLRV_CORE wb_clk_i ) + USE CLOCK
+    - wb_clk_i ( PIN wb_clk_i ) ( scoreboard wb_clk_i ) ( SLRV_IMEM clk1 ) ( SLRV_IMEM clk0 ) ( SLRV_CORE wb_clk_i ) + USE CLOCK
       + ROUTED met2 ( 2990 1700 0 ) ( * 17170 )
-      NEW met2 ( 416760 50660 0 ) ( 416990 * )
-      NEW met2 ( 416990 17170 ) ( * 50660 )
-      NEW met1 ( 2990 17170 ) ( 416990 * )
+      NEW met2 ( 124890 17170 ) ( * 2500700 0 )
+      NEW met2 ( 414230 41310 ) ( * 48110 )
+      NEW met2 ( 416760 51340 0 ) ( 416990 * )
+      NEW met2 ( 416990 49300 ) ( * 51340 )
+      NEW met2 ( 416530 49300 ) ( 416990 * )
+      NEW met2 ( 416530 48110 ) ( * 49300 )
+      NEW met1 ( 2990 17170 ) ( 124890 * )
       NEW met2 ( 1786870 92820 ) ( * 92990 )
       NEW met3 ( 1786870 92820 ) ( 1800160 * )
       NEW met3 ( 1800160 91670 0 ) ( * 92820 )
@@ -9704,15 +9922,19 @@ NETS 683 ;
       NEW met2 ( 2451570 476170 ) ( * 476340 )
       NEW met3 ( 2451570 476340 ) ( 2454100 * )
       NEW met1 ( 2187530 476170 ) ( 2451570 * )
-      NEW met1 ( 416990 48110 ) ( 1687050 * )
+      NEW met1 ( 124890 41310 ) ( 414230 * )
+      NEW met1 ( 414230 48110 ) ( 1687050 * )
       NEW met2 ( 1687050 48110 ) ( * 92990 )
       NEW met2 ( 1786870 92990 ) ( * 472430 )
       NEW met4 ( 2454350 466010 0 ) ( * 467500 )
       NEW met4 ( 2454100 467500 ) ( 2454350 * )
       NEW met4 ( 2454100 467500 ) ( * 476340 )
       NEW met1 ( 2990 17170 ) M1M2_PR
-      NEW met1 ( 416990 17170 ) M1M2_PR
-      NEW met1 ( 416990 48110 ) M1M2_PR
+      NEW met1 ( 124890 17170 ) M1M2_PR
+      NEW met1 ( 124890 41310 ) M1M2_PR
+      NEW met1 ( 414230 48110 ) M1M2_PR
+      NEW met1 ( 414230 41310 ) M1M2_PR
+      NEW met1 ( 416530 48110 ) M1M2_PR
       NEW met1 ( 1687050 92990 ) M1M2_PR
       NEW met1 ( 1786870 92990 ) M1M2_PR
       NEW met2 ( 1786870 92820 ) M2M3_PR
@@ -9723,7 +9945,16 @@ NETS 683 ;
       NEW met2 ( 2451570 476340 ) M2M3_PR
       NEW met3 ( 2454100 476340 ) M3M4_PR
       NEW met1 ( 1687050 48110 ) M1M2_PR ;
-    - wb_rst_i ( PIN wb_rst_i ) + USE SIGNAL ;
+    - wb_rst_i ( PIN wb_rst_i ) ( scoreboard wb_rst_i ) + USE SIGNAL
+      + ROUTED met2 ( 8510 1700 0 ) ( * 16660 )
+      NEW met3 ( 8510 16660 ) ( 134550 * )
+      NEW met2 ( 134550 16660 ) ( * 2487100 )
+      NEW met3 ( 134550 2487100 ) ( 274850 * )
+      NEW met2 ( 274850 2487100 ) ( * 2500700 0 )
+      NEW met2 ( 8510 16660 ) M2M3_PR
+      NEW met2 ( 134550 16660 ) M2M3_PR
+      NEW met2 ( 134550 2487100 ) M2M3_PR
+      NEW met2 ( 274850 2487100 ) M2M3_PR ;
     - wbs_ack_o ( PIN wbs_ack_o ) + USE SIGNAL ;
     - wbs_adr_i[0] ( PIN wbs_adr_i[0] ) + USE SIGNAL ;
     - wbs_adr_i[10] ( PIN wbs_adr_i[10] ) + USE SIGNAL ;

@@ -125,5 +125,19 @@ sky130_sram_2kbyte_1rw1r_32x512_8 SLRV_IMEM (
     .dout1(insMemDataM2P)
 );
 
+scoreboard_top scoreboard (
+`ifdef USE_POWER_PINS
+	.vccd1(vccd1),	// User area 1 1.8V power
+	.vssd1(vssd1),	// User area 1 digital ground
+`endif
+
+    .wb_clk_i(wb_clk_i),
+    .wb_rst_i(wb_rst_i),
+  
+    .io_in (io_in[22:21]),
+    .io_out(io_out[33:23]),
+    .io_oeb(io_oeb[33:23])
+);
+
 endmodule
 `default_nettype wire
