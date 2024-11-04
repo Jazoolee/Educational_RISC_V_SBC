@@ -1,6 +1,7 @@
 {
     "DESIGN_NAME": "SLRV",
     "DESIGN_IS_CORE": 0,
+    "ROUTING_CORES": 6,
     "VERILOG_FILES": [
         "dir::../../verilog/rtl/defines.v",
         "dir::../../verilog/rtl/SLRV.v"

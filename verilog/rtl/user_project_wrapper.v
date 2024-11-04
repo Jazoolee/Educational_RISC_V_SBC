@@ -85,16 +85,16 @@ module user_project_wrapper #(
     wire [8:0] insMemAddrP2M;
         
     
-SLRV mprj (
+SLRV SLRV_CORE (
 `ifdef USE_POWER_PINS
 	.vccd1(vccd1),	// User area 1 1.8V power
 	.vssd1(vssd1),	// User area 1 digital ground
 `endif
 
     .wb_clk_i(wb_clk_i),
-    .wb_rst_i(wb_rst_i),
-    .la_data_in(la_data_in[1:0]),
-    .insMemEn(la_data_in[2]),
+    .reset(la_data_in[0]),
+    .la_data_in(la_data_in[2:1]),
+    .insMemEn(la_data_in[3]),
     .insMemDataIn(insMemDataM2P),
     .insMemAddr(insMemAddrP2M),
     .gp(la_data_out[31:0]),
@@ -106,7 +106,7 @@ SLRV mprj (
 
 );
 
-sky130_sram_2kbyte_1rw1r_32x512_8 imem (
+sky130_sram_2kbyte_1rw1r_32x512_8 SLRV_IMEM (
 `ifdef USE_POWER_PINS
 	.vccd1(vccd1),	// User area 1 1.8V power
 	.vssd1(vssd1),	// User area 1 digital ground
@@ -114,15 +114,15 @@ sky130_sram_2kbyte_1rw1r_32x512_8 imem (
 
     .clk0(wb_clk_i),
     .csb0(csb),
-    .web0(la_data_in[2]),
+    .web0(la_data_in[3]),
     .wmask0(wmask),
-    .addr0(la_data_in[11:3]),
-    .din0(la_data_in[43:12]),
+    .addr0(la_data_in[12:4]),
+    .din0(la_data_in[44:13]),
     
     .clk1(wb_clk_i),
     .csb1(csb),
     .addr1(insMemAddrP2M),
-    .dout1(insMemDataM2P),
+    .dout1(insMemDataM2P)
 );
 
 endmodule

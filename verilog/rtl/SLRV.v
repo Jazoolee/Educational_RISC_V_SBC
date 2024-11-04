@@ -8,7 +8,7 @@ module SLRV (
 
     // Wishbone Slave ports (WB MI A)
     input wb_clk_i,
-    input wb_rst_i,
+    input reset,
     
     // Logic Analyzer Signals
     input  [1:0] la_data_in,
@@ -31,7 +31,7 @@ module SLRV (
     wire  dataMemWen;
     wire [31:0] dataMemDataM2P, dataMemDataP2M;
 
-    assign pc_led_oeb = wb_rst_i;
+    assign pc_led_oeb = 1'b0;
     
     dmem dmem (
     
@@ -45,7 +45,7 @@ module SLRV (
     processor_only processor_only (
 
       .clock(wb_clk_i),
-      .reset(wb_rst_i),
+      .reset(reset),
       .insMemEn(insMemEn),
       .insMemDataIn(insMemDataIn),
       .debug(la_data_in[0]),
