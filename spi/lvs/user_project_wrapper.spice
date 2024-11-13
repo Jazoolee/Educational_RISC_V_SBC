@@ -18,13 +18,6 @@
 + vssd1 wb_clk_i wmask[0] wmask[1] wmask[2] wmask[3]
 .ends
 
-* Black-box entry subcircuit for scoreboard_top abstract view
-.subckt scoreboard_top io_in[0] io_in[1] io_oeb[0] io_oeb[10] io_oeb[1] io_oeb[2]
-+ io_oeb[3] io_oeb[4] io_oeb[5] io_oeb[6] io_oeb[7] io_oeb[8] io_oeb[9] io_out[0]
-+ io_out[10] io_out[1] io_out[2] io_out[3] io_out[4] io_out[5] io_out[6] io_out[7]
-+ io_out[8] io_out[9] vccd1 vssd1 wb_clk_i wb_rst_i
-.ends
-
 * Black-box entry subcircuit for sky130_sram_2kbyte_1rw1r_32x512_8 abstract view
 .subckt sky130_sram_2kbyte_1rw1r_32x512_8 din0[0] din0[1] din0[2] din0[3] din0[4]
 + din0[5] din0[6] din0[7] din0[8] din0[9] din0[10] din0[11] din0[12] din0[13] din0[14]
@@ -165,13 +158,9 @@ XSLRV_CORE la_data_out[32] la_data_out[42] la_data_out[43] la_data_out[44] la_da
 + SLRV_IMEM/dout1[26] SLRV_IMEM/dout1[27] SLRV_IMEM/dout1[28] SLRV_IMEM/dout1[29]
 + SLRV_IMEM/dout1[2] SLRV_IMEM/dout1[30] SLRV_IMEM/dout1[31] SLRV_IMEM/dout1[3] SLRV_IMEM/dout1[4]
 + SLRV_IMEM/dout1[5] SLRV_IMEM/dout1[6] SLRV_IMEM/dout1[7] SLRV_IMEM/dout1[8] SLRV_IMEM/dout1[9]
-+ la_data_in[3] la_data_in[1] la_data_in[2] io_out[10] io_oeb[10] la_data_in[0] vccd1
++ la_data_in[3] la_data_in[1] la_data_in[2] io_out[8] io_oeb[8] la_data_in[0] vccd1
 + vssd1 wb_clk_i SLRV_CORE/wmask[0] SLRV_CORE/wmask[1] SLRV_CORE/wmask[2] SLRV_CORE/wmask[3]
 + SLRV
-Xscoreboard io_in[21] io_in[22] io_oeb[23] io_oeb[33] io_oeb[24] io_oeb[25] io_oeb[26]
-+ io_oeb[27] io_oeb[28] io_oeb[29] io_oeb[30] io_oeb[31] io_oeb[32] io_out[23] io_out[33]
-+ io_out[24] io_out[25] io_out[26] io_out[27] io_out[28] io_out[29] io_out[30] io_out[31]
-+ io_out[32] vccd1 vssd1 wb_clk_i wb_rst_i scoreboard_top
 XSLRV_IMEM la_data_in[13] la_data_in[14] la_data_in[15] la_data_in[16] la_data_in[17]
 + la_data_in[18] la_data_in[19] la_data_in[20] la_data_in[21] la_data_in[22] la_data_in[23]
 + la_data_in[24] la_data_in[25] la_data_in[26] la_data_in[27] la_data_in[28] la_data_in[29]

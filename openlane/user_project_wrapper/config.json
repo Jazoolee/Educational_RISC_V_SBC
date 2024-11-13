@@ -11,28 +11,24 @@
     "CLOCK_PERIOD": 100,
     "CLOCK_PORT": "wb_clk_i",
     "CLOCK_NET": "wb_clk_i",
-    "FP_PDN_MACRO_HOOKS": "SLRV_CORE vccd1 vssd1 vccd1 vssd1, SLRV_IMEM vccd1 vssd1 vccd1 vssd1, scoreboard vccd1 vssd1 vccd1 vssd1",
+    "FP_PDN_MACRO_HOOKS": "SLRV_CORE vccd1 vssd1 vccd1 vssd1, SLRV_IMEM vccd1 vssd1 vccd1 vssd1",
     "MACRO_PLACEMENT_CFG": "dir::macro.cfg",
     "MAGIC_DEF_LABELS": 0,
     "VERILOG_FILES_BLACKBOX": [
         "dir::../../verilog/gl/SLRV.v",
-        "dir::../../verilog/gl/sky130_sram_2kbyte_1rw1r_32x512_8.v",
-        "dir::../../verilog/gl/scoreboard_top.v"
+        "dir::../../verilog/gl/sky130_sram_2kbyte_1rw1r_32x512_8.v"
     ],
     "EXTRA_LEFS": [
     	"dir::../../lef/SLRV.lef",
-    	"dir::../../lef/sky130_sram_2kbyte_1rw1r_32x512_8.lef",
-    	"dir::../../lef/scoreboard_top.lef"
+    	"dir::../../lef/sky130_sram_2kbyte_1rw1r_32x512_8.lef"
     ],
     "EXTRA_GDS_FILES": [
     	"dir::../../gds/SLRV.gds",
-    	"dir::../../gds/sky130_sram_2kbyte_1rw1r_32x512_8.gds",
-    	"dir::../../gds/scoreboard_top.gds"
+    	"dir::../../gds/sky130_sram_2kbyte_1rw1r_32x512_8.gds"
     ],
     "EXTRA_LIBS": [
     	"dir::../../lib/SLRV.lib",
-    	"dir::../../lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib",
-    	"dir::../../lib/scoreboard_top.lib"
+    	"dir::../../lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib"
     ],
     "EXTRA_SPEFS": [
         "SLRV", 
@@ -42,7 +38,7 @@
     ],
     "BASE_SDC_FILE": "dir::base_user_project_wrapper.sdc",
     "IO_SYNC": 0,
-    "RUN_KLAYOUT_XOR":0,
+    "RUN_KLAYOUT_XOR":1,
     "RUN_MAGIC_DRC":0,
     "QUIT_ON_MAGIC_DRC": 0,
     "MAX_TRANSITION_CONSTRAINT": 1.5,
@@ -63,7 +59,7 @@
     "GLB_RESIZER_HOLD_MAX_BUFFER_PERCENT": 80,
     "GRT_REPAIR_ANTENNAS": 0,
     "RUN_FILL_INSERTION": 0,
-    "GRT_OBS":["met3 1800 540 1900 750"],
+    "GRT_OBS":["met3 1800 340 1900 550"],
     "RUN_TAP_DECAP_INSERTION": 0,
     "FP_PDN_VPITCH": 180,
     "FP_PDN_HPITCH": 180,

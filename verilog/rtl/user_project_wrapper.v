@@ -99,8 +99,8 @@ SLRV SLRV_CORE (
     .insMemAddr(insMemAddrP2M),
     .gp(la_data_out[31:0]),
     .a7(la_data_out[63:32]),
-    .pc_led(io_out[10]),
-    .pc_led_oeb(io_oeb[10]),
+    .pc_led(io_out[8]),
+    .pc_led_oeb(io_oeb[8]),
     .csb(csb),
     .wmask(wmask)
 
@@ -123,20 +123,6 @@ sky130_sram_2kbyte_1rw1r_32x512_8 SLRV_IMEM (
     .csb1(csb),
     .addr1(insMemAddrP2M),
     .dout1(insMemDataM2P)
-);
-
-scoreboard_top scoreboard (
-`ifdef USE_POWER_PINS
-	.vccd1(vccd1),	// User area 1 1.8V power
-	.vssd1(vssd1),	// User area 1 digital ground
-`endif
-
-    .wb_clk_i(wb_clk_i),
-    .wb_rst_i(wb_rst_i),
-  
-    .io_in (io_in[22:21]),
-    .io_out(io_out[33:23]),
-    .io_oeb(io_oeb[33:23])
 );
 
 endmodule
